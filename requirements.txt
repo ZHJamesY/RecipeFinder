@@ -1,0 +1,3 @@
+# create file requirements.txt: pipreqs . --force
+Flask==3.0.3,
+Gunicorn
