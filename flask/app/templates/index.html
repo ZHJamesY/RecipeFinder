@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>Recipe Finder</h1>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h3>Find recipe by type in the ingredients (seperate by ,)</h3>
+    <form action="/" method="GET">
+        <label for="inputField">Your Text:</label>
+        <input type="text" id="inputField" name="inputField" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}
