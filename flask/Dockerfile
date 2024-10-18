@@ -1,14 +1,18 @@
 # docker container image
 FROM python:3.11.0
 
-# set the working directory to /app
+
+# Set the working directory in the container
 WORKDIR /app
 
-# copy the current directory contents into the container at /app
-ADD . /app
+# Copy the requirements file
+COPY . .
 
-# install the dependencise
-RUN pip install -r requirements.txt
+# Install the required packages
+RUN pip install --no-cache-dir -r requirements.txt
 
-# run the command to start waitress
-CMD python run.py
+# Expose the port for HTTP/1.1
+EXPOSE 8000
+
+CMD ["hypercorn", "--bind", "0.0.0.0:8000", "run:app"]
+
