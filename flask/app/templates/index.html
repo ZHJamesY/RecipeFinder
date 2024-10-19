@@ -7,10 +7,22 @@
 {% block body %}
 <div class="container">
     <h3>Find recipe by type in the ingredients (seperate by ,)</h3>
-    <form action="/" method="GET">
-        <label for="inputField">Your Text:</label>
-        <input type="text" id="inputField" name="inputField" required>
-        <button type="submit">Submit</button>
+    
+    <!-- user search recipe by ingredients -->
+    <form id="recipeForm" onsubmit="findRecipe(event); return false;">
+        <label for="ingredients">Your Text:</label>
+        <input type="text" id="ingredients" placeholder="Enter recipe name" required>
+        <button type="submit" id="recipeFindBtn">Find Recipe</button>
+
+        <!-- recipe results: random 4 -->
+        <div id="result">
+            <img id="recipeImage1" alt="Recipe Image" src="https://img.spoonacular.com/recipes/651914-312x231.jpg">
+            <img id="recipeImage2" alt="Recipe Image" src="https://img.spoonacular.com/recipes/651914-312x231.jpg">
+            <img id="recipeImage3" alt="Recipe Image" src="https://img.spoonacular.com/recipes/651914-312x231.jpg">
+            <img id="recipeImage4" alt="Recipe Image" src="https://img.spoonacular.com/recipes/651914-312x231.jpg">
+
+
+        </div>
     </form>
 </div>
 {% endblock %}

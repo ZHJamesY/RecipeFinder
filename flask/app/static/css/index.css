@@ -1,4 +1,30 @@
 body
 {
-    margin: 0;
+    margin: 1;
+}
+
+/* #result 
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#result img 
+{
+    margin: 10px;
+} */
+
+#result 
+{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 10px;
+}
+
+#result img 
+{
+    width: 100%;
+    height: auto;
 }

@@ -1,0 +1,30 @@
+[
+    {
+        "id": 663824,
+        "image": "https://img.spoonacular.com/recipes/663824-312x231.jpg",
+        "imageType": "jpg",
+        "instruction": "<p>Wash and pat dry chicken thighs. In a sealable container, combine all marinade ingredients. Toss chicken in marinade, cover and refrigerate for at least 2 hours.</p><p>In a Dutch oven, heat vegetable oil over medium high heat. Add onions and saut until tender. Add garlic and continue to saut until fragrant.</p><p>Sprinkle onions and garlic with curry powder and stir to evenly coat. Add 1 tablespoon of water and cook for one minute, stirring constantly.</p><p>Add chicken and marinade. Saut until lightly browned, about 5 minutes.</p><p>If you want a thick curry add potatoes now, otherwise set aside.</p><p>Sprinkle chicken with amchar masala, cumin and salt. Toss to coat. Pour in one cup of water and bring to a boil.</p><p>Reduce heat, cover pot and simmer for 20 minutes. If you reserved the potatoes for a thinner curry, add them to the pot after twenty minutes.</p><p>Continue to simmer for an additional twenty minutes until chicken reaches an internal temperature of 165 F and potatoes are cooked through.</p><p>Serve warm with roti or rice.</p>",
+        "preparation": {
+            "0": "2 lbs chicken thighs, bone in and skin on",
+            "1": "½ yellow onion, diced",
+            "2": "3 garlic cloves, roughly chopped",
+            "3": "1 Tsp. fresh thyme",
+            "4": "1 Tsp. hot sauce",
+            "5": "¼ Tsp. powdered ginger",
+            "6": "¼ tsp. curry powder",
+            "7": "1 Tsp. coconut oil",
+            "8": "1 Tsp. cilantro, finely chopped",
+            "9": "1 scallion",
+            "10": "1 Tbsp. vegetable oil",
+            "11": "½ yellow onion, sliced",
+            "12": "3 garlic cloves, minced",
+            "13": "1 ½ Tbsp. curry powder",
+            "14": "1 Tsp. amchar masala",
+            "15": "½ Tsp. cumin",
+            "16": "½ Tsp. salt",
+            "17": "1 cup of water",
+            "18": "2 potatoes, cut into large cubes"
+        },
+        "title": "Trinidadian Chicken Potato Curry"
+    }
+]
