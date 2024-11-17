@@ -16,5 +16,5 @@ EXPOSE 8000
 
 # CMD ["hypercorn", "--bind", "0.0.0.0:8000", "run:app"]
 
-CMD hypercorn "run:app" -c hypercorn_config.toml --bind "0.0.0.0:8000"
+CMD hypercorn "run:app" -c hypercorn.toml --bind "0.0.0.0:8000"
 
