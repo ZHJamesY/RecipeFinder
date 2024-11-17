@@ -1,7 +1,7 @@
 # API Design and Integration (15%)
 - Clear and well-structured API endpoints.
 - Proper use of HTTP methods (GET, POST, PUT, DELETE).
-- Integration with at least one external API.
+- Integration with at least one external API. ✅
 - Documentation of the API endpoints.
 
 # Architectural Design (15%)
@@ -27,11 +27,11 @@
 - Continuous Integration (CI) setup with automated testing using GitHub Actions or similar.
 
 # Deployment and DevOps (10%)
-- Deployment to a cloud platform (e.g., AWS, Heroku, Azure) or a general-purpose server.
+- Deployment to a cloud platform (e.g., AWS, Heroku, Azure) or a general-purpose server. ✅
 - Use of Docker for deployment consistency. ✅  
 - Setup of a CI/CD pipeline.
 - Documentation of deployment process.
-- Use of HTTPS with either HTTP v2 or HTTP v3.
+- Use of HTTPS with either HTTP v2 or HTTP v3. ✅
 
 # Performance Optimization (5%)
 - Implementation of performance monitoring.
