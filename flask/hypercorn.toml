@@ -2,4 +2,4 @@ worker_class = "asyncio"
 alpn_protocols = ["h2"]
 error_logfile = "-"
 loglevel = "DEBUG"
-insecure_bind = True
+insecure_bind = true
