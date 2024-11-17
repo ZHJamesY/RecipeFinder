@@ -3,28 +3,152 @@ body
     margin: 1;
 }
 
-/* #result 
-{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-#result img 
-{
-    margin: 10px;
-} */
-
 #result 
 {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(4, 350px);
     justify-content: center;
-    gap: 10px;
+    gap: 30px 120px;
+    height: auto;
 }
 
-#result img 
+@media (max-width: 1700px) { 
+    #result {
+        grid-template-columns: repeat(2, 400px);
+        height: 50vh;
+    }
+}
+
+@media (max-width: 800px) { 
+    #result {
+        grid-template-columns: repeat(1, 450px); 
+    }
+}
+
+
+.recipeImage
 {
     width: 100%;
     height: auto;
+    border: 2px solid rgb(80, 80, 80);
+    transition: .2s linear;
+    cursor: pointer;
+}
+
+.recipeImage:hover
+{
+    transform: scale(1.1);
+}
+
+.loadingScreen {
+    display: none; /*flex*/
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.loader {
+    position: absolute; 
+    z-index: 2;
+}
+
+  /* HTML: <div class="loader"></div> */
+.loader {
+    width: 100px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 8px solid #000000;
+    animation:
+      l20-1 0.8s infinite linear alternate,
+      l20-2 1.6s infinite linear;
+}
+@keyframes l20-1{
+    0%    {clip-path: polygon(50% 50%,0       0,  50%   0%,  50%    0%, 50%    0%, 50%    0%, 50%    0% )}
+    12.5% {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100%   0%, 100%   0%, 100%   0% )}
+    25%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 100% 100%, 100% 100% )}
+    50%   {clip-path: polygon(50% 50%,0       0,  50%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+    62.5% {clip-path: polygon(50% 50%,100%    0, 100%   0%,  100%   0%, 100% 100%, 50%  100%, 0%   100% )}
+    75%   {clip-path: polygon(50% 50%,100% 100%, 100% 100%,  100% 100%, 100% 100%, 50%  100%, 0%   100% )}
+    100%  {clip-path: polygon(50% 50%,50%  100%,  50% 100%,   50% 100%,  50% 100%, 50%  100%, 0%   100% )}
+}
+
+@keyframes l20-2{ 
+    0%    {transform:scaleY(1)  rotate(0deg)}
+    49.99%{transform:scaleY(1)  rotate(135deg)}
+    50%   {transform:scaleY(-1) rotate(0deg)}
+    100%  {transform:scaleY(-1) rotate(-135deg)}
+}
+/*  */
+
+.popup
+{
+    display: none; /*flex*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .95);
+    height: 100%;
+    width: 100%;
+    z-index: 100;
+    justify-content: center;
+}
+
+.popup span
+{
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: white;
+    cursor: pointer;
+    height: 100vh;
+    
+}
+
+.recipeContainer {
+    justify-content: center;
+    display: flex;
+    position: fixed;
+    margin-top: 100px;
+    gap: 0px 100px;
+    width: 100%;
+}
+
+.recipeContainer img {
+    border: 3px solid rgb(0, 0, 0);
+    width: calc(353.2px * 2);
+    height: calc(262.33px * 2);
+    margin-top: 30px;
+}
+
+.recipeInfo
+{
+    color: white;
+    width: 706.4px;
+}
+
+#preparation {
+    display: flex;
+    flex-wrap: wrap; 
+    list-style-type: none; 
+    padding: 0;
+}
+
+#preparation li {
+    width: 50%; /* Each item takes up half of the row */
+    box-sizing: border-box;
+    list-style-type: disc;
+
+}
+
+.scrollable {
+    max-height: 80vh; /* Adjust as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 15px;
 }

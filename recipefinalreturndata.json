@@ -1,30 +1,89 @@
-[
-    {
-        "id": 663824,
-        "image": "https://img.spoonacular.com/recipes/663824-312x231.jpg",
-        "imageType": "jpg",
-        "instruction": "<p>Wash and pat dry chicken thighs. In a sealable container, combine all marinade ingredients. Toss chicken in marinade, cover and refrigerate for at least 2 hours.</p><p>In a Dutch oven, heat vegetable oil over medium high heat. Add onions and saut until tender. Add garlic and continue to saut until fragrant.</p><p>Sprinkle onions and garlic with curry powder and stir to evenly coat. Add 1 tablespoon of water and cook for one minute, stirring constantly.</p><p>Add chicken and marinade. Saut until lightly browned, about 5 minutes.</p><p>If you want a thick curry add potatoes now, otherwise set aside.</p><p>Sprinkle chicken with amchar masala, cumin and salt. Toss to coat. Pour in one cup of water and bring to a boil.</p><p>Reduce heat, cover pot and simmer for 20 minutes. If you reserved the potatoes for a thinner curry, add them to the pot after twenty minutes.</p><p>Continue to simmer for an additional twenty minutes until chicken reaches an internal temperature of 165 F and potatoes are cooked through.</p><p>Serve warm with roti or rice.</p>",
-        "preparation": {
-            "0": "2 lbs chicken thighs, bone in and skin on",
-            "1": "½ yellow onion, diced",
-            "2": "3 garlic cloves, roughly chopped",
-            "3": "1 Tsp. fresh thyme",
-            "4": "1 Tsp. hot sauce",
-            "5": "¼ Tsp. powdered ginger",
-            "6": "¼ tsp. curry powder",
-            "7": "1 Tsp. coconut oil",
-            "8": "1 Tsp. cilantro, finely chopped",
-            "9": "1 scallion",
-            "10": "1 Tbsp. vegetable oil",
-            "11": "½ yellow onion, sliced",
-            "12": "3 garlic cloves, minced",
-            "13": "1 ½ Tbsp. curry powder",
-            "14": "1 Tsp. amchar masala",
-            "15": "½ Tsp. cumin",
-            "16": "½ Tsp. salt",
-            "17": "1 cup of water",
-            "18": "2 potatoes, cut into large cubes"
+{
+    "data": [
+        {
+            "id": 659180,
+            "image": "https://img.spoonacular.com/recipes/659180-312x231.jpg",
+            "imageType": "jpg",
+            "instruction": "Roasted Chicken\n1. Place your chicken into a roasting pan or dutch oven. I left the organs and the neck for added flavor.\n2. Put garlic cloves under the skin of the chicken\n3. Chop the onion and scatter around the bottom of the pan. Pour in water.\nSalsa Verde\n1. Remove the hulls from the tomatillos. They will be sticky, don't worry if you can't wash it all off. Remove the stems.\n2. Place all the tomatillos and chiles into a sauce pot. Cover with water and boil until soft.\n3. Remove the tomatillos and chiles from the water and place in a blender. Add all the remaining ingredients and blend until smooth.\n4. It's as simple as that. A yummy salsa perfect for tamales, eating with chip or putting on top of whatever you're eating!\nTamale Dough (Masa)\nMix all together to make a soft, sticky dough.\nSalsa Verde Tamales\nTamale Dough\nShreded chicken\n2 cups Salsa Verde\n10 to 40 green olives\n4 medium potatoes\n1. Remove the corn husks from the bag and place them in a pot of hot water. Continue to heat on low for   at least 30 minutes. You want them to be pliable.\n2. Add your shreded chicken to a skillet and cover with  about two cups of salsa verde.\n3. If you have large olives you will want to cut them in 1/2 or in 1/4. If they are small you might just want to leave them whole. I prefer to remove the pit but you don't have too, just watch out when you bit into the tamale. Place in small bowl and set aside.\n4. Cut the potatoes into small, thick strips. You don't have to remove the peel.  I used red potatoes because that is all I had. Normally I would use  regular old potatoes. Place in a small bowl, cover with water  to previent them from turning brown and set aside.\n5. Now comes the fun part! Asembling the tamales! It is best to do this with a firend. My sister helped me since I am visiting her right now. Remove the soaked corn husks from the pot.\n6. Pick out the husk you want to use. Normally one big one is enough. If the are small you may have to use two, overlapping a bit.\n7. Spred about 2TBS of the dough across the bottom half of the husk, narrow end pointing away from you about 1/8 in thick. Going a little more than half way up, leaving a tiny bit of room on the sides.\n8. Now place a small amount of chicken in the middle of the dough. I can't remember the exact amount I used.\n9. Place a potatoe sclice in the middle of the chicken and an olive at the end.\n10. Fold in one side and then the other. Fold up the bottom. If you want you can tie them closed with a small strip of husk. I don't.\n11. In a large pot pour in a about two cups of water. Place as many tamales that will fit in the pot, open end facing up. Place the lid on the pot and bring to a boil. Once boiling, turn down the heat and steam for 30 to 45 minutes.\n12. Remove from the pot and enjoy!! You will know that they are done when the husk can be pulled away from the masa and not stick. I served mine with refried beans and rice. The rice recipe will soon to follow, hopefully! This recipe made almost 4 dozen tamales. They can be frozen to save for later. Simply let them defrost and steam until warm.",
+            "preparation": {
+                "0": "Roasted Chicken",
+                "1": "4 to 5lb chicken (preferably free range grass feed)",
+                "2": "10 cloves of garlic",
+                "3": "1/2 large onion",
+                "4": "Cumin",
+                "5": "Sea salt",
+                "6": "Olive oil",
+                "7": "4 cup of water",
+                "8": "Salsa Verde (Green Salsa)",
+                "9": "10 tomatillos",
+                "10": "1 Pablano chile",
+                "11": "1 Jalepeno chile",
+                "12": "2 Serano chiles",
+                "13": "1/4 yellow onion",
+                "14": "1/3 of a bunch of cilantro",
+                "15": "1 tsp Sea salt",
+                "16": "Tamale Dough (Masa)",
+                "17": "I would have liked to use an organic version of masa but I couldn't find one at the time of making the tamales. I used Maseca brand. You can find an organic masa on amazon.",
+                "18": "6 cups Masa (corn flour, NOT corn meal)",
+                "19": "2 tsp Sea salt",
+                "20": "6 Tbs Organic Palm Shortening",
+                "21": "4 cups Chicken broth (reserved from roasting your chicken)",
+                "22": "1 cup Salsa verde"
+            },
+            "title": "Salsa Verde Chicken Tamales"
         },
-        "title": "Trinidadian Chicken Potato Curry"
-    }
-]
+        {
+            "id": 649495,
+            "image": "https://img.spoonacular.com/recipes/649495-312x231.jpg",
+            "imageType": "jpg",
+            "instruction": "<ol><li>2 X 300g packets mushroom or italian style stir fry or stir fry vegetables of your own choice finely shredded</li><li>Aga equipment:small roasting tin on third set of runners in roasting oventhen second set of runners in simmering oven</li><li>Trim the leg tips and wing tips from the chicken and remove any excess fat from the neck of the bird (keep the chicken fat if you are likely to make a confit in the next few days).</li><li>Season the chicken inside and out.</li><li>Separate the garlic into cloves but do not bother to peel them.</li><li>Place about two thirds of the cloves inside the chicken and the rest in the bottom of the roasting tin sitting the chicken on top of them.</li><li>Pare the zest from the lemons and cover it in plastic wrap for later use as a garnish.</li><li>Rub the juice into the chicken inside and out then rub the olive oil over the breast.</li><li>Roast the chicken quickly for 30 minutes then transfer it to the simmering ovenand cook for at least 4 hours.</li><li>Stand for 10 to 15 minutes before carving or if you have left the chicken for six hours or more pulling the joints apart for serving.</li><li>Heat a wok or large frying pan for 5 minutes on the floor of the roasting ovenwhile the chicken is standing. Transfer the wok to the boiling plateand add the sunflower oil.</li><li>Stir fry the vegetables in the oil for 3 to 4 minutes then serve the chicken on the vegetables or mixed in with them if the meat has fallen off the bone.</li><li>I often cook chicken with lemon and tarragon but the flavour of this pungent herb is lost if the cooking period is too long. So for slow aga roasting I use a mixture of lemon and garlic.</li><li>Serves 6</li></ol>",
+            "preparation": {
+                "0": "1 large chicken weighing about 2.3kg",
+                "1": "2 bulbs garlic",
+                "2": "2 large lemons",
+                "3": "1 tablespoon fruity olive oil",
+                "4": "1 salt and freshly ground black pepper",
+                "5": "2 tablespoons sunflower oil"
+            },
+            "title": "Lemon and Garlic Slow Roasted Chicken"
+        },
+        {
+            "id": 649395,
+            "image": "https://img.spoonacular.com/recipes/649395-312x231.jpg",
+            "imageType": "jpg",
+            "instruction": "<ol><li>Brown ground beef with onion</li><li>Cook potatoes in water till soft, drain</li><li>Mash potatoes, add chicken broth as needed to make smooth mashed potatoes</li><li>Spread browned ground beef in bottom of 8x11 Pyrex dish</li><li>Spread mashed potatoes over beef layer</li><li>Spead corn kernels over mashed potato layer</li><li>Sprinkle grated cheese over corn layer</li><li>Bake at 350 for 25-30 minutes or until heated through and cheese is melted</li><li>When the pie comes out of the oven, lightly dust the top with a little pepper if desired.</li></ol>",
+            "preparation": {
+                "0": "1 cup chicken broth",
+                "1": "2 cups corn kernels",
+                "2": "1 pound lean ground beef",
+                "3": "2 tablespoons chopped onion",
+                "4": "4 mediums potatoes, peeled and quartered",
+                "5": "8 ounces reduced fat cheddar cheese, grated",
+                "6": "Salt to taste"
+            },
+            "title": "Lean Shepherd's Pie"
+        },
+        {
+            "id": 635263,
+            "image": "https://img.spoonacular.com/recipes/635263-312x231.jpg",
+            "imageType": "jpg",
+            "instruction": "<ol><li>Combine all seasonings. Seasoning mix is enough for 2 chickens. It may be made ahead and stored in an airtight container until needed.</li><li>Place chicken in a 13- by 9- by 2-inch baking pan. Rub with half the seasoning mixture. Cover and refrigerate overnight.</li><li>Grill, covered, over medium coals, turning once, for 30 to 45 minutes or until juices run clear.</li><li>This recipe yields 4 servings.</li></ol>",
+            "preparation": {
+                "0": "1 teaspoon crushed bay leaves",
+                "1": "3/4 teaspoon Black pepper",
+                "2": "1 tablespoon brown sugar",
+                "3": "1 teaspoon Cayenne pepper",
+                "4": "1 teaspoon dried rosemary crushed",
+                "5": "1/2 teaspoon Dried thyme",
+                "6": "1 tablespoon dry mustard",
+                "7": "1 teaspoon Garlic powder",
+                "8": "1 teaspoon Ground cumin",
+                "9": "1 teaspoon Onion powder",
+                "10": "1 tablespoon Paprika",
+                "11": "2 1/2 teaspoons Salt",
+                "12": "3.5 lbs chicken"
+            },
+            "title": "Blackened Cajun Chicken"
+        }
+    ]
+}
