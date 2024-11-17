@@ -12,9 +12,9 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port for HTTP/1.1
-# EXPOSE 8000
+EXPOSE 8000
 
 # CMD ["hypercorn", "--bind", "0.0.0.0:8000", "run:app"]
 
-CMD hypercorn "run:app" -c hypercorn_config.py
+CMD hypercorn "run:app" -c hypercorn_config.toml --bind "0.0.0.0:8000"
 

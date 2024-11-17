@@ -1,0 +1,5 @@
+worker_class = "asyncio"
+h2_enabled = true
+error_logfile = "-"
+loglevel = "DEBUG"
+insecure_bind = true
