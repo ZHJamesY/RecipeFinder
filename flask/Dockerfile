@@ -12,7 +12,7 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Expose the port for HTTP/1.1
-# EXPOSE 8000
+EXPOSE 8000
 
-CMD ["hypercorn", "--bind", "0.0.0.0:$PORT", "run:app"]
+CMD ["hypercorn", "--bind", "0.0.0.0:8000", "run:app"]
 
