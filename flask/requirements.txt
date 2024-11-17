@@ -4,3 +4,4 @@ Jinja2
 Hypercorn==0.17.3
 Requests==2.32.3
 python-dotenv
+h2
