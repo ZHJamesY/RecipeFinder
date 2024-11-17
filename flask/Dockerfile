@@ -23,4 +23,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Expose the port for HTTP/1.1 and HTTP/2
 # EXPOSE 8000
 
-CMD hypercorn "run:app" --bind "0.0.0.0:$PORT" --h2 --insecure-bind --error-logfile - --log-level DEBUG
+CMD hypercorn "run:app" --insecure-bind "0.0.0.0:$PORT" --h2 --error-logfile - --log-level DEBUG
