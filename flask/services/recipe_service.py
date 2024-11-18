@@ -1,6 +1,7 @@
 import os
 import requests
 from flask import jsonify
+from dotenv import load_dotenv
 
 class RecipeService:
     @staticmethod
@@ -10,6 +11,9 @@ class RecipeService:
         # url2 use recipe id and get recipe ingredients and instructions
         url1 = ' https://api.spoonacular.com/recipes/complexSearch'
         url2 = 'https://api.spoonacular.com/recipes/recipeID/information'
+
+        # load env variables
+        load_dotenv()
 
         # Define the headers with the x-api-key: spoonacular api key
         headers = {
@@ -63,9 +67,10 @@ class RecipeService:
 
                 else:
                     # error handling
-                    return jsonify({'error' : f"Failed to fetch data2. Status code: {response2.status_code}"})
+                    return jsonify({'error' : f"Failed to fetch data2. Status code: {response2.status_code}.", "response": response2.json()}), response2.status_code
             # return final result after cleaning data
             return jsonify({'data':finalResponse})
         else:
+            print("HERE HERE: ", headers['x-api-key'])
             # error handling
-            return jsonify({'error' : f"Failed to fetch data1. Status code: {response1.status_code}"}), response1.status_code
+            return jsonify({'error' : f"Failed to fetch data1. Status code: {response1.status_code}.", "response": response1.json()}), response1.status_code

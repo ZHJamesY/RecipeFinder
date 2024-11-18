@@ -1,9 +1,5 @@
 let recipeInfo;
 
-$(document).ready(function() {
-
-});
-
 function displayRecipeInfo()
 {
     document.querySelectorAll('.recipeImage').forEach(image => {
@@ -30,6 +26,7 @@ function displayRecipeInfo()
     }
 
 }
+
 // function fetch data from route /find_recipe when form with id recipeForm is submitted
 async function findRecipe() {
     const fragment = document.createDocumentFragment();
@@ -71,9 +68,9 @@ async function findRecipe() {
         imagesTagList.push(img);
     }
 
-
     // get data if input field is not empty
     if (ingredients.trim() != "") {
+
         // display loader
         loader.style.display = 'flex';
 
@@ -88,8 +85,10 @@ async function findRecipe() {
         if (response.ok) {
             try {
                 const data = await response.json();
-                console.log(data.data)
-                recipeInfo = data.data; // Store data.data in recipeInfo
+
+                // console.log(data.data)
+                // Store data.data in recipeInfo
+                recipeInfo = data.data; 
 
                 for(let i = 0; i < data.data.length; i++)
                 {
@@ -115,7 +114,9 @@ async function findRecipe() {
             }
         } else {
             const data = await response.json();
+            // print error message to web inspect console and display error message on webpage
             console.log(data.error)
+            console.log(data.response)
             document.getElementById('result').innerText = 'Error finding recipe.';
         }
     }
