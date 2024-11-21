@@ -74,12 +74,13 @@ async function findRecipe() {
         // display loader
         loader.style.display = 'flex';
 
+        // fetch data from route /find_recipe
         const response = await fetch(`/find_recipe?ingredients=${encodeURIComponent(ingredients)}`, {
             method: 'GET',
         });
 
         // local json file for testing
-        // const response = await fetch('http://127.0.0.1:5500/recipefinalreturndata.json');
+        // const response = await fetch('http://127.0.0.1:5500/sampleRecipedata.json');
 
         // if fetch succssful, display recipe results
         if (response.ok) {
