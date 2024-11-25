@@ -26,7 +26,8 @@ class RecipeService:
             'includeIngredients': ingredients.replace(', ', ','),
             'number': number,
             'sort': 'random',
-            # type -> [main course, dessert, side dish, breakfast, appetizer, soup, salad]
+            # type -> [main course, dessert, side dish,
+            # breakfast, appetizer, soup, salad]
             'type': 'main course'
         }
 
@@ -48,7 +49,8 @@ class RecipeService:
             for r in range(0, len(recipeInfo)):
                 finalResponse.append(recipeInfo[r])
                 recipeID = str(recipeInfo[r]['id'])
-                # makge get request to url2 by extracting recipe id from url1 response and with headers
+                # makge get request to url2 by extracting recipe id from
+                # url1 response and with headers
                 response2 = requests.get(url2.replace("recipeID", recipeID), headers=headers)
 
                 if str(response2.status_code).startswith('4'):
@@ -68,10 +70,11 @@ class RecipeService:
 
                 else:
                     # error handling
-                    return jsonify({'error': f"Failed to fetch data2. Status code: {response2.status_code}.", "response": response2.json()}), response2.status_code
+                    return jsonify({'error': f"Failed to fetch data2. Status code: {response2.status_code}.",
+                                    "response": response2.json()}), response2.status_code
             # return final result after cleaning data
             return jsonify({'data': finalResponse})
         else:
-            print("HERE HERE: ", headers['x-api-key'])
             # error handling
-            return jsonify({'error': f"Failed to fetch data1. Status code: {response1.status_code}.", "response": response1.json()}), response1.status_code
+            return jsonify({'error': f"Failed to fetch data1. Status code: {response1.status_code}.",
+                            "response": response1.json()}), response1.status_code
