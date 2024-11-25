@@ -3,6 +3,7 @@ import requests
 from flask import jsonify
 from dotenv import load_dotenv
 
+
 class RecipeService:
     @staticmethod
     def get_recipe_by_external_api(ingredients, number):
@@ -23,10 +24,10 @@ class RecipeService:
         # Define the parameters for url1
         params1 = {
             'includeIngredients': ingredients.replace(', ', ','),
-            'number' : number,
-            'sort' : 'random',
+            'number': number,
+            'sort': 'random',
             # type -> [main course, dessert, side dish, breakfast, appetizer, soup, salad]
-            'type' : 'main course'
+            'type': 'main course'
         }
 
         # Make the GET request to url1, with headers and the parameters
@@ -49,11 +50,11 @@ class RecipeService:
                 recipeID = str(recipeInfo[r]['id'])
                 # makge get request to url2 by extracting recipe id from url1 response and with headers
                 response2 = requests.get(url2.replace("recipeID", recipeID), headers=headers)
-                
+
                 if str(response2.status_code).startswith('4'):
                     headers['x-api-key'] = os.getenv('SPOONACULAR_API_2')
                     response2 = requests.get(url2.replace("recipeID", recipeID), headers=headers)
-                    
+
                 if response2.status_code == 200:
                     data2 = response2.json()
                     ingredients = data2['extendedIngredients']
@@ -67,10 +68,10 @@ class RecipeService:
 
                 else:
                     # error handling
-                    return jsonify({'error' : f"Failed to fetch data2. Status code: {response2.status_code}.", "response": response2.json()}), response2.status_code
+                    return jsonify({'error': f"Failed to fetch data2. Status code: {response2.status_code}.", "response": response2.json()}), response2.status_code
             # return final result after cleaning data
-            return jsonify({'data':finalResponse})
+            return jsonify({'data': finalResponse})
         else:
             print("HERE HERE: ", headers['x-api-key'])
             # error handling
-            return jsonify({'error' : f"Failed to fetch data1. Status code: {response1.status_code}.", "response": response1.json()}), response1.status_code
+            return jsonify({'error': f"Failed to fetch data1. Status code: {response1.status_code}.", "response": response1.json()}), response1.status_code
