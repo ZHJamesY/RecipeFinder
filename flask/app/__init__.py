@@ -3,6 +3,7 @@ from controllers.index import index
 from controllers.recipe_controller import recipe
 from config import Config
 
+
 # flask app
 def create_app():
     app = Flask(__name__)

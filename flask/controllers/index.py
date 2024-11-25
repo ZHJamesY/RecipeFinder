@@ -1,12 +1,13 @@
-from flask import Blueprint, request, jsonify, abort, render_template
-import os
+from flask import Blueprint, render_template
 
 
 index = Blueprint('index', __name__)
 
+
 @index.route("/")
 def home():
     return render_template('index.html')
+
 
 @index.route("/testing")
 def test():

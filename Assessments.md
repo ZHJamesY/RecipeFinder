@@ -21,10 +21,9 @@
 - Use of relationships between data entities.
 
 # Testing and Quality Assurance (10%)
-- Unit tests covering core functionalities.
+- Unit tests covering core functionalities. 
 - Integration tests for API endpoints.
-- End-to-End tests.
-- Continuous Integration (CI) setup with automated testing using GitHub Actions or similar.
+- End-to-end tests with Selenium.
 
 # Deployment and DevOps (10%)
 - Deployment to a cloud platform (e.g., AWS, Heroku, Azure) or a general-purpose server. ✅
@@ -34,9 +33,7 @@
 - Use of HTTPS with either HTTP v2 or HTTP v3. ✅
 
 # Performance Optimization (5%)
-- Implementation of performance monitoring.
-- Analysis of application performance and bottlenecks.
-- Documentation of performance improvements.
+- Analysis of application performance using https://pagespeed.web.dev/.
 
 # Version Control and Collaboration (5%)
 - Use of Git and GitHub/GitLab for version control.
@@ -44,8 +41,14 @@
 - Properly documented README file with project setup instructions.
 
 # Code Quality and Documentation (5%)
-- Clean, readable, and maintainable code.
 - Proper use of comments and docstrings.
 - Adherence to coding standards and best practices (e.g., PEP 8 for Python).
 - Comprehensive project documentation, including setup, usage, and architecture.
 - Use of design patterns.
+
+# Presentation and Demonstration (15%)
+- Clear and organized presentation of the project.
+- Demonstration of key features.
+- Explanation of design decisions and challenges faced.
+- Q&A session to assess understanding and depth of knowledge.
+
