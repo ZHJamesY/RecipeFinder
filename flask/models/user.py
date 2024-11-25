@@ -14,6 +14,9 @@ class User(UserMixin, db.Model):
     email = db.Column(db.String, unique=True, nullable=False)
     profile_pic = db.Column(db.String, nullable=False)
 
+    # saved_recipes = db.relationship('SavedRecipe', backref='user', lazy=True)
+    saved_recipes = db.Column(db.String, nullable=True) #temp set to string for test
+
     # Class methods for querying the database
     @staticmethod
     def get(user_id):
