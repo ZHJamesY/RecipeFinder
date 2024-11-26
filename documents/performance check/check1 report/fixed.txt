@@ -1,0 +1,6 @@
+Report link: https://pagespeed.web.dev/analysis/https-recipefinder-1rqb-onrender-com/7pimqbnu3l?form_factor=mobile
+
+- Removed unused JavaScript
+- Added <title> element
+- Heading elements are not in a sequentially-descending order->replaced h3 with h1
+- Added meta description
