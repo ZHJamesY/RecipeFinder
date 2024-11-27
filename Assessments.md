@@ -28,7 +28,7 @@
 # Deployment and DevOps (10%)
 - Deployment to a cloud platform (e.g., AWS, Heroku, Azure) or a general-purpose server. ✅
 - Use of Docker for deployment consistency. ✅  
-- Setup of a CI/CD pipeline.
+- Setup of a CI/CD pipeline. ✅
 - Documentation of deployment process. ✅
 - Use of HTTPS with either HTTP v2 or HTTP v3. ✅
 
