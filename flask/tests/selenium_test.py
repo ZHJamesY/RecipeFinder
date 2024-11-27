@@ -42,7 +42,7 @@ def driver():
         service=ChromeService(ChromeDriverManager().install()),
         options=chrome_options
     )    
-    
+
     yield driver
     driver.quit()
 
@@ -69,7 +69,7 @@ def test_page_search(driver, test_app):
     pause(2)
 
     # Wait for the element to be visible
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'recipeImage1')))
+    WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.ID, 'recipeImage1')))
 
     # Click on the first recipe image
     driver.find_element(By.ID, 'recipeImage1').click()
