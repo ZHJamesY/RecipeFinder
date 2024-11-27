@@ -5,6 +5,9 @@ on: [push, pull_request]
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      SPOONACULAR_API_1: ${{ secrets.SPOONACULAR_API_1 }}
+      SPOONACULAR_API_2: ${{ secrets.SPOONACULAR_API_2 }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
