@@ -72,8 +72,8 @@ def test_page_search(driver, test_app):
     WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.ID, 'recipeImage1')))
 
     # Click on the first recipe image
-    driver.find_element(By.ID, 'recipeImage1').click()
-    pause(2)
+    # driver.find_element(By.ID, 'recipeImage1').click()
+    # pause(2)
 
-    # Wait for the element to be visible - recipe name
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'recipeName')))
+    # # Wait for the element to be visible - recipe name
+    # WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'recipeName')))

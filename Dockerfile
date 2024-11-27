@@ -5,10 +5,10 @@ FROM python:3.11.0
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the files
-COPY . .
 
-COPY ../requirements.txt .
+# Copy the files
+COPY requirements.txt .
+COPY flask/ .
 
 # Install the required packages
 RUN pip install --no-cache-dir -r requirements.txt
