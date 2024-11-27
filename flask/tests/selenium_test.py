@@ -8,7 +8,8 @@ from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
+
 
 app = create_app()
 
@@ -32,7 +33,16 @@ def test_app():
 # Set up the Selenium WebDriver using Chrome
 @pytest.fixture(scope='module')
 def driver():
-    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+
+    driver = webdriver.Chrome(
+        service=ChromeService(ChromeDriverManager().install()),
+        options=chrome_options
+    )    
+    
     yield driver
     driver.quit()
 
