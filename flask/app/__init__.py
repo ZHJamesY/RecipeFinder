@@ -1,12 +1,16 @@
 from flask import Flask
-from controllers.index import index
-from controllers.recipe_controller import recipe
+
 from config import Config
 from extensions import db
-from models.user import User
+from controllers.user_controller import user_bp
+from controllers.recipe_controller import recipe_bp
+from routes.auth_routes import auth_bp
+from controllers.index import index
+
 
 # flask app
 def create_app():
+
     app = Flask(__name__)
 
     # Load configuration
@@ -14,9 +18,10 @@ def create_app():
     
     # Register the blueprints
     app.register_blueprint(index)
-    app.register_blueprint(recipe)
+    app.register_blueprint(recipe_bp, url_prefix='/recipe')
+    app.register_blueprint(user_bp, url_prefix='/user')
+    app.register_blueprint(auth_bp)
 
-    # Initialize the database
     # Initialize the db object with the app
     db.init_app(app) 
 

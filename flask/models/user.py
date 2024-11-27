@@ -4,6 +4,7 @@
 
 from extensions import db
 from flask_login import UserMixin
+from models.user_recipe import user_recipe
 
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
@@ -13,17 +14,8 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, unique=True, nullable=False)
     profile_pic = db.Column(db.String, nullable=False)
-
-    # saved_recipes = db.relationship('SavedRecipe', backref='user', lazy=True)
-    saved_recipes = db.Column(db.String, nullable=True) #temp set to string for test
-
-    # Class methods for querying the database
-    @staticmethod
-    def get(user_id):
-        return User.query.filter_by(id=user_id).first()
-
-    @staticmethod
-    def create(id_, name, email, profile_pic):
-        user = User(id=id_, name=name, email=email, profile_pic=profile_pic)
-        db.session.add(user)
-        db.session.commit()
+    saved_recipes = db.relationship(
+        "Recipe",
+        secondary=user_recipe,
+        back_populates="users",
+    )

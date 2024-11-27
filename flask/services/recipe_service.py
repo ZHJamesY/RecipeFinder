@@ -2,9 +2,33 @@ import os
 import requests
 from flask import jsonify
 from dotenv import load_dotenv
+from models.recipe import Recipe
+from extensions import db
 
 
 class RecipeService:
+    # method for getting recipe by id
+    def get_recipe_by_id(self, recipe_id):
+        return Recipe.query.filter_by(id=recipe_id).first()
+
+    #method for getting recipe by html 
+    # (might change to name or something)
+    def get_recipe_by_html(self, recipe_html):
+        return Recipe.query.filter_by(recipe_html=recipe_html).first()
+
+    #method for getting all recipes (that are 
+    # currently stored in the database)
+    def get_all_recipes(self):
+        return Recipe.query.all()
+    
+    #method for creating a new recipe
+    # (to be stored in the db)
+    def create_recipe(self, recipe_html):
+        recipe = Recipe(recipe_html=recipe_html)
+        db.session.add(recipe)
+        db.session.commit()
+        print("recipe committed to database")
+
     @staticmethod
     def get_recipe_by_external_api(ingredients, number):
         # Define the base URL
