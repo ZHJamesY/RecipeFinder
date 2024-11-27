@@ -3,7 +3,6 @@ Flask==3.1.0
 Jinja2
 Hypercorn==0.17.3
 Requests==2.32.3
-python-dotenv
 h2
 oauthlib
 pyOpenSSL
@@ -11,3 +10,9 @@ Flask-Login
 Flask-SQLAlchemy==3.1.1
 SQLAlchemy==2.0.35
 typing_extensions==4.12.2
+Flask_Login==0.6.3
+flask_sqlalchemy==3.1.1
+pytest==8.3.3
+python-dotenv==1.0.1
+selenium==4.27.1
+webdriver_manager==4.0.2

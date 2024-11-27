@@ -5,8 +5,10 @@ FROM python:3.11.0
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the requirements file
+# Copy the files
 COPY . .
+
+COPY ../requirements.txt .
 
 # Install the required packages
 RUN pip install --no-cache-dir -r requirements.txt
