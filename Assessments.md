@@ -5,9 +5,9 @@
 - Documentation of the API endpoints.
 
 # Architectural Design (15%)
-- Implementation of chosen architecture (e.g., Microservices, Monolithic, MVC).
-- Proper separation of concerns (frontend, backend, database).
-- Diagram and explanation of the chosen architecture (UML package and class diagrams).
+- Implementation of chosen architecture (e.g., Microservices, Monolithic, MVC). ✅
+- Proper separation of concerns (frontend, backend, database). ✅
+- Diagram and explanation of the chosen architecture (UML package and class diagrams). ✅
 
 # Authentication and Security (10%)
 - Implementation of secure user authentication (e.g., OAuth, JWT, etc.).
@@ -29,22 +29,22 @@
 - Deployment to a cloud platform (e.g., AWS, Heroku, Azure) or a general-purpose server. ✅
 - Use of Docker for deployment consistency. ✅  
 - Setup of a CI/CD pipeline.
-- Documentation of deployment process.
+- Documentation of deployment process. ✅
 - Use of HTTPS with either HTTP v2 or HTTP v3. ✅
 
 # Performance Optimization (5%)
-- Analysis of application performance using https://pagespeed.web.dev/.
+- Analysis of application performance using https://pagespeed.web.dev/. ✅
 
 # Version Control and Collaboration (5%)
-- Use of Git and GitHub/GitLab for version control.
-- Regular commits with clear messages.
-- Properly documented README file with project setup instructions.
+- Use of Git and GitHub/GitLab for version control. ✅
+- Regular commits with clear messages. ✅
+- Properly documented README file with project setup instructions. ✅
 
 # Code Quality and Documentation (5%)
-- Proper use of comments and docstrings.
-- Adherence to coding standards and best practices (e.g., PEP 8 for Python).
-- Comprehensive project documentation, including setup, usage, and architecture.
-- Use of design patterns.
+- Proper use of comments and docstrings. ✅
+- Adherence to coding standards and best practices (e.g., PEP 8 for Python). ✅
+- Comprehensive project documentation, including setup, usage, and architecture. ✅
+- Use of design patterns. ✅
 
 # Presentation and Demonstration (15%)
 - Clear and organized presentation of the project.
