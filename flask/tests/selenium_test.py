@@ -27,14 +27,14 @@ def test_app():
     pause(2)  # Allow time for the server to start.
     yield
     # Teardown to stop the Flask app thread.
-    app_thread.join(timeout=1)
+    # app_thread.join(timeout=1)
 
    
 # Set up the Selenium WebDriver using Chrome
 @pytest.fixture(scope='module')
 def driver():
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
 
@@ -70,10 +70,15 @@ def test_page_search(driver, test_app):
 
     # Wait for the element to be visible
     WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.ID, 'recipeImage1')))
+    pause(2)
 
     # Click on the first recipe image
-    # driver.find_element(By.ID, 'recipeImage1').click()
-    # pause(2)
+    driver.find_element(By.ID, 'recipeImage1').click()
+    pause(2)
 
-    # # Wait for the element to be visible - recipe name
-    # WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.ID, 'recipeName')))
+    # Check if the popup is displayed with flex
+    popup = WebDriverWait(driver, 30).until(
+        EC.visibility_of_element_located((By.CLASS_NAME, 'popup'))
+    )
+    assert popup.value_of_css_property('display') == 'flex'
+    pause(2)

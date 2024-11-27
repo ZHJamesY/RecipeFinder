@@ -18,4 +18,4 @@ Access demo at: https://recipefinder-1rqb.onrender.com
 <br />
     
 # Deploy on third-party platform  
-- Deploy using Docker, provide the path to the flask/Dockerfile file
+- Deploy using Docker, select the Dockerfile file
