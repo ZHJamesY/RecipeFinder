@@ -23,7 +23,7 @@
 # Testing and Quality Assurance (10%)
 - Unit tests covering core functionalities. 
 - Integration tests for API endpoints.
-- End-to-end tests with Selenium.
+- End-to-end tests with Selenium. ✅
 
 # Deployment and DevOps (10%)
 - Deployment to a cloud platform (e.g., AWS, Heroku, Azure) or a general-purpose server. ✅
