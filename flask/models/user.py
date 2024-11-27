@@ -1,10 +1,11 @@
-#represent the user's (account's) info
-#since we are only using google oauth
+# represent the user's (account's) info
+# since we are only using google oauth
 # should store id, name, email, saved recipes, and maybe other user info
 
 from extensions import db
 from flask_login import UserMixin
 from models.user_recipe import user_recipe
+
 
 class User(UserMixin, db.Model):
     __tablename__ = 'user'

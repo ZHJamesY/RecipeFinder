@@ -1,5 +1,5 @@
 from flask import Blueprint, redirect, request, url_for, render_template
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import login_user, logout_user, login_required
 
 from services.oauth_service import fetch_token, fetch_user_info
 from services.user_service import UserService
@@ -7,6 +7,7 @@ from services.user_service import UserService
 user_service = UserService()
 
 auth_bp = Blueprint('auth', __name__)
+
 
 @auth_bp.route("/login")
 def login():
@@ -20,6 +21,7 @@ def login():
         scope=["openid", "email", "profile"],
     )
     return redirect(request_uri)
+
 
 @auth_bp.route("/login/callback")
 def callback():
@@ -37,10 +39,10 @@ def callback():
     # Retrieve or create user
     unique_id = user_data["sub"]
 
-    #get user from user service
+    # get user from user service
     user = user_service.get_user(unique_id)
 
-    #if user does not exist, create user
+    # if user does not exist, create user
     if not user:
         user_service.create_user(
             unique_id, 
@@ -48,13 +50,14 @@ def callback():
             user_data["email"], 
             user_data["picture"])
 
-        #get user again after creating
+        # get user again after creating
         user = user_service.get_user(unique_id)
     
     # Log in the user 
     login_user(user)
 
     return redirect(url_for("index.home"))
+
 
 @auth_bp.route("/logout")
 @login_required

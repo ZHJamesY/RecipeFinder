@@ -1,6 +1,7 @@
 from models.user import User
 from extensions import db
 
+
 # Define the service class to handle user-related operations
 class UserService:
     # Class methods for querying the database

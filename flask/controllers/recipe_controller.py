@@ -20,6 +20,7 @@ def get_recipe_by_id(recipe_id):
         'recipe_html': recipe.recipe_html
     })
 
+
 # Define the route for getting a recipe by html
 @recipe_bp.route('/html/<recipe_html>', methods=['GET'])
 def get_recipe_by_html(recipe_html):
@@ -35,6 +36,7 @@ def get_recipe_by_html(recipe_html):
         'recipe_html': recipe.recipe_html
     })
 
+
 # Define the route for getting all recipes
 @recipe_bp.route('/getall', methods=['GET'])
 def get_all_recipes():
@@ -46,6 +48,7 @@ def get_all_recipes():
         'id': recipe.id,
         'recipe_html': recipe.recipe_html
     } for recipe in recipes])
+
 
 # Define the route for creating a new recipe
 @recipe_bp.route('/create', methods=['POST'])
