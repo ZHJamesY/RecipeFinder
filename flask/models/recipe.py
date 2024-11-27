@@ -7,7 +7,7 @@ class Recipe(db.Model):
 
     # Define table columns
     id = db.Column(db.Integer, primary_key=True)
-    # just have one string representing a html line storing 
+    # just have one string representing a html line storing
     # all recipe info to keep things simple for now
     recipe_html = db.Column(db.Text, nullable=False)
     users = db.relationship(

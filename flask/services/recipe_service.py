@@ -20,7 +20,7 @@ class RecipeService:
     # currently stored in the database)
     def get_all_recipes(self):
         return Recipe.query.all()
-    
+
     # method for creating a new recipe
     # (to be stored in the db)
     def create_recipe(self, recipe_html):
@@ -75,7 +75,7 @@ class RecipeService:
                 recipeID = str(recipeInfo[r]['id'])
                 # makge get request to url2 by extracting recipe id from
                 # url1 response and with headers
-                response2 = requests.get(url2.replace("recipeID", recipeID), 
+                response2 = requests.get(url2.replace("recipeID", recipeID),
                                          headers=headers)
 
                 if str(response2.status_code).startswith('4'):
@@ -100,7 +100,7 @@ class RecipeService:
                         {'error': f"Failed to fetch data2. Status code: \
                          {response2.status_code}.",
                          "response": response2.json()}), response2.status_code
-                
+
             # return final result after cleaning data
             return jsonify({'data': finalResponse})
         else:

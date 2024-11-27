@@ -76,3 +76,43 @@ def findRecipe():
         return recipe_manager.get_recipe_by_external_api(ingredients, number)
 
     return jsonify({'error': 'No ingredients provided.'}), 400
+
+
+'''
+/RECIPEFINDER
+    /flask
+        /app
+            /static
+                /css
+                    index.css
+                /javascript
+                    index.js
+            /templates
+                base.html
+                index_not_logged_in.html
+                index.html
+                login_error.html
+            __init__.py
+        /controllers
+            index.py
+            recipe_controller.py
+            user_controller.py
+        /models
+            mode.py
+            recipe.py
+            user_recipe.py
+            user.py
+        /routes
+            auth_routes.py
+        /services
+            oauth_service.py
+            recipe_service.py
+            user_service.py
+        /tests
+            __init__.py
+            conftest.py
+            selenium_test.py
+        config.py
+        extensions.py
+        run.py
+'''

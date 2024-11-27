@@ -2,8 +2,8 @@ import requests
 from oauthlib.oauth2 import WebApplicationClient
 
 # Google OAuth configuration
-# recipefinder oauth 
-# yes, this is bad security to store the google 
+# recipefinder oauth
+# yes, this is bad security to store the google
 # oauth keys in the code, but this is a demo project
 GOOGLE_CLIENT_ID = "42003689246-4t2lkspfbuaf8kccb99srqrlvlpn807u \
                     .apps.googleusercontent.com"

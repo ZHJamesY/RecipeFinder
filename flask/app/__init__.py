@@ -14,8 +14,8 @@ def create_app():
     app = Flask(__name__)
 
     # Load configuration
-    app.config.from_object(Config) 
-    
+    app.config.from_object(Config)
+
     # Register the blueprints
     app.register_blueprint(index)
     app.register_blueprint(recipe_bp, url_prefix='/recipe')
@@ -23,11 +23,11 @@ def create_app():
     app.register_blueprint(auth_bp)
 
     # Initialize the db object with the app
-    db.init_app(app) 
+    db.init_app(app)
 
     # Create all tables if they don't exist
     with app.app_context():
         # Create the database tables
-        db.create_all() 
+        db.create_all()
 
     return app

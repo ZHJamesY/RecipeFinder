@@ -45,15 +45,15 @@ def callback():
     # if user does not exist, create user
     if not user:
         user_service.create_user(
-            unique_id, 
-            user_data["given_name"], 
-            user_data["email"], 
+            unique_id,
+            user_data["given_name"],
+            user_data["email"],
             user_data["picture"])
 
         # get user again after creating
         user = user_service.get_user(unique_id)
-    
-    # Log in the user 
+
+    # Log in the user
     login_user(user)
 
     return redirect(url_for("index.home"))
