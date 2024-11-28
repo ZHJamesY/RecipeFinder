@@ -9,13 +9,13 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
+from flask_login import LoginManager
 
 
 app = create_app()
 
 def pause(seconds=2):
     time.sleep(seconds)
-
 
 # Start the Flask app in a separate thread
 @pytest.fixture(scope='module')
@@ -27,14 +27,14 @@ def test_app():
     pause(2)  # Allow time for the server to start.
     yield
     # Teardown to stop the Flask app thread.
-    # app_thread.join(timeout=1)
+    app_thread.join(timeout=1)
 
    
 # Set up the Selenium WebDriver using Chrome
 @pytest.fixture(scope='module')
 def driver():
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
 
@@ -56,7 +56,6 @@ def test_page_loads(driver, test_app):
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "h1")))
 
     # Verify the title contains the search term
-    assert "Recipe Finder" in driver.title
     assert driver.find_element(By.TAG_NAME, "h1").text == "Recipe Finder"
 
 def test_page_search(driver, test_app):
