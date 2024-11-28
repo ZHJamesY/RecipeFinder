@@ -75,7 +75,7 @@ async function findRecipe() {
         loader.style.display = 'flex';
 
         // fetch data from route /find_recipe
-        const response = await fetch(`/recipe/find_recipe?ingredients=${encodeURIComponent(ingredients)}`, {
+        const response = await fetch(`/find_recipe?ingredients=${encodeURIComponent(ingredients)}`, {
             method: 'GET',
         });
 

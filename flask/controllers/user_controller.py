@@ -49,3 +49,32 @@ def get_all_recipes_from_user(user_id):
         'id': recipe.id,
         'recipe_html': recipe.recipe_html
     } for recipe in recipes])
+
+
+# define the route for adding a recipe to a user
+@user_bp.route('/<user_id>/add_recipe', methods=['POST'])
+def add_recipe_to_user(user_id):
+    # Extract the recipe data from the request
+    recipe_data = request.get_json()
+
+    recipe_html = recipe_data['recipe_html']
+
+    if not recipe_html:
+        return jsonify({'error': 'Recipe HTML is required'}), 400
+
+    try:
+        user_service.add_recipe_to_user(user_id, recipe_html)
+        return jsonify({'message': 'Recipe added to user successfully'}), 200
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 404
+
+
+# define the route for removing a recipe from a user
+@user_bp.route('/<user_id>/remove_recipe', methods=['DELETE'])
+def remove_recipe_from_user(user_id, recipe_id):
+    try:
+        user_service.remove_recipe_from_user(user_id, recipe_id)
+        return jsonify({'message':
+                        'Recipe removed from user successfully'}), 200
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 404
