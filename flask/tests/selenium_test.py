@@ -13,6 +13,7 @@ from selenium.webdriver.chrome.options import Options
 
 app = create_app()
 
+
 def pause(seconds=2):
     time.sleep(seconds)
 
@@ -29,7 +30,7 @@ def test_app():
     # Teardown to stop the Flask app thread.
     # app_thread.join(timeout=1)
 
-   
+
 # Set up the Selenium WebDriver using Chrome
 @pytest.fixture(scope='module')
 def driver():
@@ -41,10 +42,11 @@ def driver():
     driver = webdriver.Chrome(
         service=ChromeService(ChromeDriverManager().install()),
         options=chrome_options
-    )    
+    )
 
     yield driver
     driver.quit()
+
 
 # function to test if the page loads
 def test_page_loads(driver, test_app):
@@ -53,11 +55,13 @@ def test_page_loads(driver, test_app):
     pause(2)
 
     # Wait for the element to be visible
-    WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.TAG_NAME, "h1")))
+    WebDriverWait(driver, 10).until(EC.visibility_of_element_located(
+        (By.TAG_NAME, "h1")))
 
     # Verify the title contains the search term
     assert "Recipe Finder" in driver.title
     assert driver.find_element(By.TAG_NAME, "h1").text == "Recipe Finder"
+
 
 def test_page_search(driver, test_app):
     driver.get("http://127.0.0.1:5000/")
@@ -69,7 +73,8 @@ def test_page_search(driver, test_app):
     pause(2)
 
     # Wait for the element to be visible
-    WebDriverWait(driver, 30).until(EC.visibility_of_element_located((By.ID, 'recipeImage1')))
+    WebDriverWait(driver, 30).until(EC.visibility_of_element_located(
+        (By.ID, 'recipeImage1')))
     pause(2)
 
     # Click on the first recipe image
