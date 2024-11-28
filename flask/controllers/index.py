@@ -12,7 +12,6 @@ def home():
             name=current_user.name,
             email=current_user.email,
             profile_pic=current_user.profile_pic,
-            saved_recipes=current_user.saved_recipes,
         )
     return render_template("index_not_logged_in.html")
 
@@ -22,6 +21,7 @@ def saved_recipes_list():
     if current_user.is_authenticated:
         return render_template(
             "saved_recipes_list.html",
+            email=current_user.email,
             profile_pic=current_user.profile_pic,
             saved_recipes=current_user.saved_recipes,
         )

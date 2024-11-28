@@ -35,21 +35,30 @@ async function saveRecipe() {
     // Clone the popup content to avoid modifying the original DOM
     let popupContent = document.querySelector('.popup').cloneNode(true);
 
-    // Remove the 'Save Recipe' button
-    let saveButton = popupContent.querySelector('#savedBtn');
-    if (saveButton) {
-        saveButton.remove();
-    }
+    //get the image url from the popupimage element
+    let imageUrl = popupContent.querySelector('.popupImage').src;
 
-    // Wrap the content in a 'popup' div (if not already wrapped)
-    let wrapperDiv = document.createElement('div');
-    wrapperDiv.classList.add('popup');
-    wrapperDiv.innerHTML = popupContent.innerHTML;
+    //get the recipe name from the recipeName element
+    let recipeName = popupContent.querySelector('#recipeName').innerText;
+
+    //get the instructions from the instruction element
+    let instructions = popupContent.querySelector('#instruction').innerText;
+
+    //get the preparation (ingredients) from the preparation element
+    let ingredients = Array.from(popupContent.querySelectorAll('#preparation li')).map(li => li.innerText);
+
+    // // Wrap the content in a 'popup' div (if not already wrapped)
+    // let wrapperDiv = document.createElement('div');
+    // wrapperDiv.classList.add('popup');
+    // wrapperDiv.innerHTML = popupContent.innerHTML;
 
     // Serialize the final HTML
-    let recipeContent = wrapperDiv.outerHTML;
+    // let recipeContent = wrapperDiv.outerHTML;
 
-    console.log(recipeContent)
+    console.log(imageUrl);
+    console.log(recipeName);
+    console.log(instructions);
+    console.log(ingredients);
 
     try {
         const response = await fetch('/user/save_recipe', {
@@ -59,7 +68,10 @@ async function saveRecipe() {
             },
             body: JSON.stringify({
                 email: userEmail,
-                recipe: recipeContent
+                recipe_name: recipeName,
+                image_url: imageUrl,
+                instructions: instructions,
+                ingredients: ingredients
             })
         });
 
@@ -167,5 +179,31 @@ async function findRecipe() {
             console.log(data.response)
             document.getElementById('result').innerText = 'Error finding recipe.';
         }
+    }
+}
+
+async function removeRecipe() {
+    let userEmail = document.querySelector('#userEmail').innerText.replace('Email: ', '');
+    let recipeName = document.querySelector('#recipe-name').innerText;
+
+    try {
+        const response = await fetch('/user/remove_recipe', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: userEmail,
+                recipe_name: recipeName
+            })
+        });
+
+        if (response.ok) {
+            console.log('Recipe removed successfully');
+        } else {
+            console.log('Failed to remove recipe');
+        }
+    } catch (error) {
+        console.error('Error during POST request:', error);
     }
 }

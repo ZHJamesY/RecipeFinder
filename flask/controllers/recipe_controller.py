@@ -17,15 +17,18 @@ def get_recipe_by_id(recipe_id):
     # Return the recipe data
     return jsonify({
         'id': recipe.id,
-        'recipe_html': recipe.recipe_html
+        'name': recipe.name,
+        'image_url': recipe.image_url,
+        'ingredients': recipe.ingredients,
+        'instructions': recipe.instructions
     })
 
 
-# Define the route for getting a recipe by html
-@recipe_bp.route('/html/<recipe_html>', methods=['GET'])
-def get_recipe_by_html(recipe_html):
-    # Call the get_recipe_by_html method from the recipe_service
-    recipe = recipe_manager.get_recipe_by_html(recipe_html)
+# Define the route for getting a recipe by name
+@recipe_bp.route('/<recipe_name>', methods=['GET'])
+def get_recipe_by_name(recipe_name):
+    # Call the get_recipe_by_name method from the recipe_service
+    recipe = recipe_manager.get_recipe_by_name(recipe_name)
 
     if not recipe:
         return jsonify({'message': 'Recipe not found'}), 404
@@ -33,7 +36,10 @@ def get_recipe_by_html(recipe_html):
     # Return the recipe data
     return jsonify({
         'id': recipe.id,
-        'recipe_html': recipe.recipe_html
+        'name': recipe.name,
+        'image_url': recipe.image_url,
+        'ingredients': recipe.ingredients,
+        'instructions': recipe.instructions
     })
 
 
@@ -46,17 +52,36 @@ def get_all_recipes():
     # Return the list of recipes
     return jsonify([{
         'id': recipe.id,
-        'recipe_html': recipe.recipe_html
+        'name': recipe.name,
+        'image_url': recipe.image_url,
+        'ingredients': recipe.ingredients,
+        'instructions': recipe.instructions
     } for recipe in recipes])
 
 
-# Define the route for creating a new recipe
+# define the route for creating a new recipe (default)
 @recipe_bp.route('/create', methods=['POST'])
 def create_recipe():
     # Extract the recipe data from the request
     recipe_data = request.get_json()
     # Create the recipe
-    recipe_manager.create_recipe(recipe_data['recipe_html'])
+    recipe_manager.create_recipe(
+        recipe_data['name'],
+        recipe_data['image_url'],
+        recipe_data['ingredients'],
+        recipe_data['instructions'])
+
+    # Return a success response
+    return jsonify({'message': 'Recipe created successfully'}), 201
+
+
+# Define the route for creating a new recipe (using only html)
+@recipe_bp.route('/create', methods=['POST'])
+def create_recipe_with_html():
+    # Extract the recipe data from the request
+    recipe_data = request.get_json()
+    # Create the recipe
+    recipe_manager.create_recipe_with_html(recipe_data['recipe_html'])
     # Return a success response
     return jsonify({'message': 'Recipe created successfully'}), 201
 
@@ -77,6 +102,21 @@ def findRecipe():
 
     return jsonify({'error': 'No ingredients provided.'}), 400
 
+
+# Define the route for getting a recipe by html
+# @recipe_bp.route('/html/<recipe_html>', methods=['GET'])
+# def get_recipe_by_html(recipe_html):
+#     # Call the get_recipe_by_html method from the recipe_service
+#     recipe = recipe_manager.get_recipe_by_html(recipe_html)
+
+#     if not recipe:
+#         return jsonify({'message': 'Recipe not found'}), 404
+
+#     # Return the recipe data
+#     return jsonify({
+#         'id': recipe.id,
+#         'recipe_html': recipe.recipe_html
+#     })
 
 '''
 /RECIPEFINDER
