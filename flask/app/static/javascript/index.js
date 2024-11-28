@@ -40,6 +40,7 @@ async function findRecipe() {
     </div>
     <div class="popup">
         <span>&times;</span>
+        <button id="savedBtn"><a href="#">Save Recipe</a></button>
         <div class="recipeContainer">
             <img class="popupImage" src="" alt="Recipe Image">
             <div class="recipeInfo">
@@ -75,12 +76,12 @@ async function findRecipe() {
         loader.style.display = 'flex';
 
         // fetch data from route /find_recipe
-        const response = await fetch(`/recipe/find_recipe?ingredients=${encodeURIComponent(ingredients)}`, {
-            method: 'GET',
-        });
+        // const response = await fetch(`/recipe/find_recipe?ingredients=${encodeURIComponent(ingredients)}`, {
+        //     method: 'GET',
+        // });
 
         // local json file for testing
-        // const response = await fetch('http://127.0.0.1:5500/sampleRecipedata.json');
+        const response = await fetch('http://127.0.0.1:5500/sampleRecipedata.json');
 
         // if fetch succssful, display recipe results
         if (response.ok) {
