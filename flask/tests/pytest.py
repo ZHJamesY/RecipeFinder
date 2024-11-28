@@ -1,7 +1,6 @@
-from unittest.mock import patch, MagicMock
+from unittest.mock import patch
 from services.recipe_service import RecipeService
 
-from models import Recipe  # Assuming Recipe is imported from models
 
 @patch.object(RecipeService, "create_recipe")
 def test_create_recipe():
