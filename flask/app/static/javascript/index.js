@@ -33,7 +33,7 @@ async function saveRecipe() {
     let recipeContent = document.querySelector('.popup').innerHTML;
 
     try {
-        const response = await fetch('/save_recipe', {
+        const response = await fetch('/user/save_recipe', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

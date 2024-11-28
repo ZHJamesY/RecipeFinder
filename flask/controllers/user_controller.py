@@ -13,9 +13,10 @@ user_service = UserService()
 def get_user(user_id):
     # call the get_user method from the user_service
     user = user_service.get_user(user_id)
+    print("user id is being called")
 
     if not user:
-        return jsonify({'message': 'User not found'}), 404
+        return jsonify({'message': 'User id not found'}), 404
 
     # Return the user data
     return jsonify({
@@ -51,9 +52,35 @@ def get_all_recipes_from_user(user_id):
     } for recipe in recipes])
 
 
+# define the route for adding a recipe with no url params
+# response is passed with body: email, html
+@user_bp.route('/add_recipe', methods=['POST'])
+def add_recipe_to_user():
+    # extract the recipe data from the request
+    recipe_data = request.get_json()
+
+    # extract the email and html from the recipe data
+    email = recipe_data['email']
+    recipe_html = recipe_data['recipeContent']
+
+    print(email)
+    print(recipe_html)
+
+    # check if the email and html are present
+    if not email or not recipe_html:
+        return jsonify({'error': 'Email and Recipe HTML are required'}), 400
+
+    # try to add the recipe to the user
+    try:
+        user_service.add_recipe_to_user(email, recipe_html)
+        return jsonify({'message': 'Recipe added to user successfully'}), 200
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 404
+
+
 # define the route for adding a recipe to a user
 @user_bp.route('/<user_id>/add_recipe', methods=['POST'])
-def add_recipe_to_user(user_id):
+def add_recipe_to_user2(user_id):
     # Extract the recipe data from the request
     recipe_data = request.get_json()
 
@@ -63,7 +90,7 @@ def add_recipe_to_user(user_id):
         return jsonify({'error': 'Recipe HTML is required'}), 400
 
     try:
-        user_service.add_recipe_to_user(user_id, recipe_html)
+        user_service.add_recipe_to_user2(user_id, recipe_html)
         return jsonify({'message': 'Recipe added to user successfully'}), 200
     except ValueError as e:
         return jsonify({'error': str(e)}), 404
