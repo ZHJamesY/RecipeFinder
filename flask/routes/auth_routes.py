@@ -17,7 +17,7 @@ def login():
 
     request_uri = client.prepare_request_uri(
         authorization_endpoint,
-        redirect_uri=request.base_url + "/callback",
+        redirect_uri = request.base_url.replace("http://", "https://") + "/callback",
         scope=["openid", "email", "profile"],
     )
     return redirect(request_uri)
@@ -25,7 +25,7 @@ def login():
 
 @auth_bp.route("/login/callback")
 def callback():
-    
+
     # Ensure the request is treated as HTTPS
     if request.headers.get('X-Forwarded-Proto') == 'http':
         return redirect(request.url.replace("http://", "https://"))
