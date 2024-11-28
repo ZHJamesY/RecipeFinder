@@ -26,14 +26,10 @@ def login():
 @auth_bp.route("/login/callback")
 def callback():
 
-    # Ensure the request is treated as HTTPS
-    if request.headers.get('X-Forwarded-Proto') == 'http':
-        return redirect(request.url.replace("http://", "https://"))
-    
     code = request.args.get("code")
 
     # Fetch access token
-    token = fetch_token(code, request.url)
+    token = fetch_token(code, request.url.replace("http://", "https://"))
 
     # Fetch user info
     user_data = fetch_user_info(token)
