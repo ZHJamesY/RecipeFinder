@@ -1,5 +1,35 @@
 let recipeInfo;
 
+$(document).ready(function() {
+    displaySavedImg();
+});
+
+function displaySavedImg()
+{
+    console.log('displaySavedImg');
+    const recipeItemExists = document.querySelector('.recipe-item') !== null;
+    if (recipeItemExists) {
+        let popupImageSrc = document.querySelector('.popupImage').src;
+        let newImage = document.createElement('img');
+        newImage.classList.add('recipeImage');
+        newImage.id = 'recipeImage1';
+        newImage.alt = 'Recipe Image Not Available!';
+        newImage.src = popupImageSrc; // Set the src to popupImageSrc
+
+        document.querySelector('.recipe-item').appendChild(newImage);
+
+        newImage.onclick = () => {
+            document.querySelector('.popup').style.display = 'flex';
+            document.querySelector('.popupImage').src = newImage.src;
+        };
+
+        document.querySelector('.popup span').onclick = () => {
+            document.querySelector('.popup').style.display = 'none';
+        }
+
+    }
+}
+
 function displayRecipeInfo()
 {
     document.querySelectorAll('.recipeImage').forEach(image => {
