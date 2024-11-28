@@ -17,6 +17,7 @@ app = create_app()
 def pause(seconds=2):
     time.sleep(seconds)
 
+
 # Start the Flask app in a separate thread
 @pytest.fixture(scope='module')
 def test_app():
