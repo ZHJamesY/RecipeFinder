@@ -115,6 +115,23 @@ body
     
 }
 
+#savedBtn
+{
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-size: 40px;
+    font-weight: bolder;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    height: auto;
+}
+
+#savedBtn:hover
+{
+    background-color: rgb(172, 172, 172);
+}
+
 .recipeContainer {
     justify-content: center;
     display: flex;
