@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<h1>Saved Recipes</h1>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div>
+        <img src="{{ profile_pic }}" alt="Google profile picture">
+    </div>
+    <a href="/">home page</a>
+    <h2>Your Saved Recipes</h2>
+    {% if saved_recipes %}
+        <form id="recipeForm" onsubmit="findRecipe(event); return false;">
+            <div id="result">
+                {% for recipe in saved_recipes %}
+                <div class="recipe-item">
+                    {{ recipe.recipe_html|safe }}
+                </div>
+            {% endfor %}
+            </div>
+        </form>
+
+    {% else %}
+        <p>No recipes saved yet. Go back to the <a href="/">home page</a> to add some!</p>
+    {% endif %}
+</div>
+{% endblock %}

@@ -17,6 +17,17 @@ def home():
     return render_template("index_not_logged_in.html")
 
 
+@index.route("/saved_recipes_list")
+def saved_recipes_list():
+    if current_user.is_authenticated:
+        return render_template(
+            "saved_recipes_list.html",
+            profile_pic=current_user.profile_pic,
+            saved_recipes=current_user.saved_recipes,
+        )
+    return render_template("index_not_logged_in.html")
+
+
 @index.route("/testing")
 def test():
     return render_template('testing.html')

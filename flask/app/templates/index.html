@@ -7,11 +7,10 @@
 {% block body %}
 <div class="container">
     <!-- temp login layout to test if things work-->
-    <h1>Hello, {{ name }}!</h1>
-    <p id="userEmail">Email: {{ email }}</p>
-    <p>Saved recipes: {{ saved_recipes }}</p>
+    <p>Hello, {{ name }}!</p>
+    <p id="userEmail">{{ email }}</p>
+    <a href="/saved_recipes_list" class="btn btn-primary">View Saved Recipes</a>
     <div>
-        <p>Google Profile Picture:</p>
         <img src="{{ profile_pic }}" alt="Google profile picture">
     </div>
     <a href="/logout">Logout</a>

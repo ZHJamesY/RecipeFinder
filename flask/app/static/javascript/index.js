@@ -30,7 +30,26 @@ function displayRecipeInfo()
 // Function to handle the POST request for saving recipe
 async function saveRecipe() {
     let userEmail = document.querySelector('#userEmail').innerText.replace('Email: ', '');
-    let recipeContent = document.querySelector('.popup').innerHTML;
+    // let recipeContent = document.querySelector('.popup').innerHTML;
+
+    // Clone the popup content to avoid modifying the original DOM
+    let popupContent = document.querySelector('.popup').cloneNode(true);
+
+    // Remove the 'Save Recipe' button
+    let saveButton = popupContent.querySelector('#savedBtn');
+    if (saveButton) {
+        saveButton.remove();
+    }
+
+    // Wrap the content in a 'popup' div (if not already wrapped)
+    let wrapperDiv = document.createElement('div');
+    wrapperDiv.classList.add('popup');
+    wrapperDiv.innerHTML = popupContent.innerHTML;
+
+    // Serialize the final HTML
+    let recipeContent = wrapperDiv.outerHTML;
+
+    console.log(recipeContent)
 
     try {
         const response = await fetch('/user/save_recipe', {
@@ -47,7 +66,6 @@ async function saveRecipe() {
         if (response.ok) {
             console.log('Recipe saved successfully');
         } else {
-            console.log(response);
             console.log('Failed to save recipe');
         }
     } catch (error) {
