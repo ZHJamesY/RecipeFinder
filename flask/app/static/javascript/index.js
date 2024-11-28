@@ -27,6 +27,33 @@ function displayRecipeInfo()
 
 }
 
+// Function to handle the POST request for saving recipe
+async function saveRecipe() {
+    let userEmail = document.querySelector('#userEmail').innerText.replace('Email: ', '');
+    let recipeContent = document.querySelector('.popup').innerHTML;
+
+    try {
+        const response = await fetch('/save_recipe', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: {
+                email: userEmail,
+                recipe: recipeContent
+            }
+        });
+
+        if (response.ok) {
+            console.log('Recipe saved successfully');
+        } else {
+            console.log('Failed to save recipe');
+        }
+    } catch (error) {
+        console.error('Error during POST request:', error);
+    }
+}
+
 // function fetch data from route /find_recipe when form with id recipeForm is submitted
 async function findRecipe() {
     const fragment = document.createDocumentFragment();
@@ -40,7 +67,7 @@ async function findRecipe() {
     </div>
     <div class="popup">
         <span>&times;</span>
-        <button id="savedBtn"><a href="#">Save Recipe</a></button>
+        <button id="savedBtn" onclick="saveRecipe()">Save Recipe</button>
         <div class="recipeContainer">
             <img class="popupImage" src="" alt="Recipe Image">
             <div class="recipeInfo">
