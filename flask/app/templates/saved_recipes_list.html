@@ -7,21 +7,30 @@
 {% block body %}
 <div class="container">
     <div>
+        <p id="userEmail">{{ email }}</p>
         <img src="{{ profile_pic }}" alt="Google profile picture">
     </div>
     <a href="/">home page</a>
     <h2>Your Saved Recipes</h2>
     {% if saved_recipes %}
-        <form id="recipeForm" onsubmit="findRecipe(event); return false;">
-            <div id="result">
-                {% for recipe in saved_recipes %}
+        <div class="recipe-list">
+            {% for recipe in saved_recipes %}
                 <div class="recipe-item">
-                    {{ recipe.recipe_html|safe }}
+                    <h3 id="recipe-name"> {{ recipe.name }} </h3>
+                    <img id="image-url" src="{{ recipe.image_url }}" alt="{{ recipe.name }}">
+                    <p id="ingredient"><strong>Ingredients:</strong></p>
+                    <ul>
+                        {% for ingredient in recipe.ingredients_list %}
+                            <li>{{ ingredient }}</li>
+                        {% endfor %}
+                    </ul>
+                    <p><strong>Instructions:</strong></p>
+                    <p id="instructions">{{ recipe.instructions }}</p>
+                    <button class="remove-recipe-btn" onclick="removeRecipe()" >Remove</button>
+                    <!-- <button class="btn btn-primary" onclick="deleteRecipe({{ recipe.id }})">Delete</button> -->
                 </div>
             {% endfor %}
-            </div>
-        </form>
-
+        </div>
     {% else %}
         <p>No recipes saved yet. Go back to the <a href="/">home page</a> to add some!</p>
     {% endif %}

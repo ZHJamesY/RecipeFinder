@@ -42,7 +42,6 @@ def create_app():
         user = user_service.get_user(user_id)
         return user
 
-
     @login_manager.unauthorized_handler
     def unauthorized():
         return "You must be logged in to access this content.", 403

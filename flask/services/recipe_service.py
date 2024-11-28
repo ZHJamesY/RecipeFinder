@@ -11,23 +11,39 @@ class RecipeService:
     def get_recipe_by_id(self, recipe_id):
         return Recipe.query.filter_by(id=recipe_id).first()
 
+    def get_recipe_by_name(self, recipe_name):
+        return Recipe.query.filter_by(name=recipe_name).first()
+
     # method for getting recipe by html
     # (might change to name or something)
-    def get_recipe_by_html(self, recipe_html):
-        return Recipe.query.filter_by(recipe_html=recipe_html).first()
+    # def get_recipe_by_html(self, recipe_html):
+    #     return Recipe.query.filter_by(recipe_html=recipe_html).first()
 
     # method for getting all recipes (that are
     # currently stored in the database)
     def get_all_recipes(self):
         return Recipe.query.all()
 
-    # method for creating a new recipe
-    # (to be stored in the db)
-    def create_recipe(self, recipe_html):
-        recipe = Recipe(recipe_html=recipe_html)
+    # (default) method for creating a new
+    # recipe using the parameters
+    def create_recipe(self, name, image_url, ingredients, instructions):
+        recipe = Recipe(
+            name=name,
+            image_url=image_url,
+            ingredients=ingredients,
+            instructions=instructions)
+
         db.session.add(recipe)
         db.session.commit()
         print("recipe committed to database")
+
+    # method for creating a new recipe
+    # (to be stored in the db)
+    def create_recipe_with_html(self, recipe_html):
+        recipe = Recipe(recipe_html=recipe_html)
+        db.session.add(recipe)
+        db.session.commit()
+        print("recipe committed to database 2")
 
     @staticmethod
     def get_recipe_by_external_api(ingredients, number):

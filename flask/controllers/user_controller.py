@@ -52,27 +52,86 @@ def get_all_recipes_from_user(user_id):
     } for recipe in recipes])
 
 
-# define the route for adding a recipe with no url params
-# response is passed with body: email, html
+# define the route for adding a recipe to a user (no params)
 @user_bp.route('/save_recipe', methods=['POST'])
 def add_recipe_to_user():
     # extract the recipe data from the request
     recipe_data = request.get_json()
 
-    # extract the email and html from the recipe data
+    # extract the email from the recipe data
     email = recipe_data['email']
-    recipe_html = recipe_data['recipe']
+    # extract the name from the recipe data
+    recipe_name = recipe_data['recipe_name']
+    # extract the image url from the recipe data
+    image_url = recipe_data['image_url']
+    # extract the ingredients from the recipe data
+    ingredients = recipe_data['ingredients']
+    # extract the instructions from the recipe data
+    instructions = recipe_data['instructions']
 
-    # check if the email and html are present
-    if not email or not recipe_html:
-        return jsonify({'error': 'Email and Recipe HTML are required'}), 400
+    # check all the elements are present
+    if (not email or not recipe_name or not image_url
+       or not ingredients or not instructions):
+        return jsonify({'error': 'missing recipe data'}), 400
 
     # try to add the recipe to the user
     try:
-        user_service.add_recipe_to_user(email, recipe_html)
+        user_service.add_recipe_to_user(
+            email,
+            recipe_name,
+            image_url,
+            ingredients,
+            instructions
+            )
         return jsonify({'message': 'Recipe added to user successfully'}), 200
     except ValueError as e:
         return jsonify({'error': str(e)}), 404
+
+
+@user_bp.route('/remove_recipe', methods=['DELETE'])
+def remove_recipe_from_user_with_name():
+    recipe_data = request.get_json()
+    email = recipe_data['email']
+    recipe_name = recipe_data['recipe_name']
+    try:
+        user_service.remove_recipe_from_user_with_name(email, recipe_name)
+        return jsonify(
+            {'message': 'Recipe removed from user successfully'}), 200
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 404
+
+
+# define the route for removing a recipe from a user
+@user_bp.route('/<user_id>/remove_recipe', methods=['DELETE'])
+def remove_recipe_from_user(user_id, recipe_id):
+    try:
+        user_service.remove_recipe_from_user(user_id, recipe_id)
+        return jsonify({'message':
+                        'Recipe removed from user successfully'}), 200
+    except ValueError as e:
+        return jsonify({'error': str(e)}), 404
+
+# define the route for adding a recipe with no url params
+# response is passed with body: email, html
+# @user_bp.route('/save_recipe', methods=['POST'])
+# def add_recipe_to_user():
+#     # extract the recipe data from the request
+#     recipe_data = request.get_json()
+
+#     # extract the email and html from the recipe data
+#     email = recipe_data['email']
+#     recipe_html = recipe_data['recipe']
+
+#     # check if the email and html are present
+#     if not email or not recipe_html:
+#         return jsonify({'error': 'Email and Recipe HTML are required'}), 400
+
+#     # try to add the recipe to the user
+#     try:
+#         user_service.add_recipe_to_user(email, recipe_html)
+#         return jsonify({'message': 'Recipe added to user successfully'}), 200
+#     except ValueError as e:
+#         return jsonify({'error': str(e)}), 404
 
 
 # define the route for adding a recipe to a user
@@ -91,14 +150,3 @@ def add_recipe_to_user():
 #         return jsonify({'message': 'Recipe added to user successfully'}), 200
 #     except ValueError as e:
 #         return jsonify({'error': str(e)}), 404
-
-
-# define the route for removing a recipe from a user
-@user_bp.route('/<user_id>/remove_recipe', methods=['DELETE'])
-def remove_recipe_from_user(user_id, recipe_id):
-    try:
-        user_service.remove_recipe_from_user(user_id, recipe_id)
-        return jsonify({'message':
-                        'Recipe removed from user successfully'}), 200
-    except ValueError as e:
-        return jsonify({'error': str(e)}), 404
