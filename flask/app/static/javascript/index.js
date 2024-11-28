@@ -38,15 +38,16 @@ async function saveRecipe() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: {
+            body: JSON.stringify({
                 email: userEmail,
                 recipe: recipeContent
-            }
+            })
         });
 
         if (response.ok) {
             console.log('Recipe saved successfully');
         } else {
+            console.log(response);
             console.log('Failed to save recipe');
         }
     } catch (error) {

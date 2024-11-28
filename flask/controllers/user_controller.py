@@ -9,23 +9,23 @@ user_service = UserService()
 
 
 # Definte the route for getting a user
-@user_bp.route('/<user_id>', methods=['GET'])
-def get_user(user_id):
-    # call the get_user method from the user_service
-    user = user_service.get_user(user_id)
-    print("user id is being called")
+# @user_bp.route('/<user_id>', methods=['GET'])
+# def get_user(user_id):
+#     # call the get_user method from the user_service
+#     user = user_service.get_user(user_id)
+#     print("user id is being called")
 
-    if not user:
-        return jsonify({'message': 'User id not found'}), 404
+#     if not user:
+#         return jsonify({'message': 'User id not found'}), 404
 
-    # Return the user data
-    return jsonify({
-        'id': user.id,
-        'name': user.name,
-        'email': user.email,
-        'profile_pic': user.profile_pic,
-        'saved_recipes': user.saved_recipes
-    })
+#     # Return the user data
+#     return jsonify({
+#         'id': user.id,
+#         'name': user.name,
+#         'email': user.email,
+#         'profile_pic': user.profile_pic,
+#         'saved_recipes': user.saved_recipes
+#     })
 
 
 # Define the route for creating a new user
@@ -54,14 +54,14 @@ def get_all_recipes_from_user(user_id):
 
 # define the route for adding a recipe with no url params
 # response is passed with body: email, html
-@user_bp.route('/add_recipe', methods=['POST'])
+@user_bp.route('/save_recipe', methods=['POST'])
 def add_recipe_to_user():
     # extract the recipe data from the request
     recipe_data = request.get_json()
 
     # extract the email and html from the recipe data
     email = recipe_data['email']
-    recipe_html = recipe_data['recipeContent']
+    recipe_html = recipe_data['recipe']
 
     print(email)
     print(recipe_html)
