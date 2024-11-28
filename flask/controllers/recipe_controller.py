@@ -20,6 +20,7 @@ def get_recipe_by_id(recipe_id):
         'recipe_html': recipe.recipe_html
     })
 
+
 # Define the route for getting a recipe by html
 @recipe_bp.route('/html/<recipe_html>', methods=['GET'])
 def get_recipe_by_html(recipe_html):
@@ -35,6 +36,7 @@ def get_recipe_by_html(recipe_html):
         'recipe_html': recipe.recipe_html
     })
 
+
 # Define the route for getting all recipes
 @recipe_bp.route('/getall', methods=['GET'])
 def get_all_recipes():
@@ -46,6 +48,7 @@ def get_all_recipes():
         'id': recipe.id,
         'recipe_html': recipe.recipe_html
     } for recipe in recipes])
+
 
 # Define the route for creating a new recipe
 @recipe_bp.route('/create', methods=['POST'])
@@ -73,3 +76,43 @@ def findRecipe():
         return recipe_manager.get_recipe_by_external_api(ingredients, number)
 
     return jsonify({'error': 'No ingredients provided.'}), 400
+
+
+'''
+/RECIPEFINDER
+    /flask
+        /app
+            /static
+                /css
+                    index.css
+                /javascript
+                    index.js
+            /templates
+                base.html
+                index_not_logged_in.html
+                index.html
+                login_error.html
+            __init__.py
+        /controllers
+            index.py
+            recipe_controller.py
+            user_controller.py
+        /models
+            mode.py
+            recipe.py
+            user_recipe.py
+            user.py
+        /routes
+            auth_routes.py
+        /services
+            oauth_service.py
+            recipe_service.py
+            user_service.py
+        /tests
+            __init__.py
+            conftest.py
+            selenium_test.py
+        config.py
+        extensions.py
+        run.py
+'''

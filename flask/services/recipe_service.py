@@ -11,17 +11,17 @@ class RecipeService:
     def get_recipe_by_id(self, recipe_id):
         return Recipe.query.filter_by(id=recipe_id).first()
 
-    #method for getting recipe by html 
+    # method for getting recipe by html
     # (might change to name or something)
     def get_recipe_by_html(self, recipe_html):
         return Recipe.query.filter_by(recipe_html=recipe_html).first()
 
-    #method for getting all recipes (that are 
+    # method for getting all recipes (that are
     # currently stored in the database)
     def get_all_recipes(self):
         return Recipe.query.all()
-    
-    #method for creating a new recipe
+
+    # method for creating a new recipe
     # (to be stored in the db)
     def create_recipe(self, recipe_html):
         recipe = Recipe(recipe_html=recipe_html)
@@ -75,11 +75,13 @@ class RecipeService:
                 recipeID = str(recipeInfo[r]['id'])
                 # makge get request to url2 by extracting recipe id from
                 # url1 response and with headers
-                response2 = requests.get(url2.replace("recipeID", recipeID), headers=headers)
+                response2 = requests.get(url2.replace("recipeID", recipeID),
+                                         headers=headers)
 
                 if str(response2.status_code).startswith('4'):
                     headers['x-api-key'] = os.getenv('SPOONACULAR_API_2')
-                    response2 = requests.get(url2.replace("recipeID", recipeID), headers=headers)
+                    response2 = requests.get(
+                        url2.replace("recipeID", recipeID), headers=headers)
 
                 if response2.status_code == 200:
                     data2 = response2.json()
@@ -94,11 +96,16 @@ class RecipeService:
 
                 else:
                     # error handling
-                    return jsonify({'error': f"Failed to fetch data2. Status code: {response2.status_code}.",
-                                    "response": response2.json()}), response2.status_code
+                    return jsonify(
+                        {'error': f"Failed to fetch data2. Status code: \
+                         {response2.status_code}.",
+                         "response": response2.json()}), response2.status_code
+
             # return final result after cleaning data
             return jsonify({'data': finalResponse})
         else:
             # error handling
-            return jsonify({'error': f"Failed to fetch data1. Status code: {response1.status_code}.",
-                            "response": response1.json()}), response1.status_code
+            return jsonify(
+                {'error': f"Failed to fetch data1. Status code: \
+                 {response1.status_code}.",
+                 "response": response1.json()}), response1.status_code
