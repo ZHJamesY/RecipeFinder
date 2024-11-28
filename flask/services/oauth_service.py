@@ -5,11 +5,9 @@ from oauthlib.oauth2 import WebApplicationClient
 # recipefinder oauth
 # yes, this is bad security to store the google
 # oauth keys in the code, but this is a demo project
-GOOGLE_CLIENT_ID = "42003689246-4t2lkspfbuaf8kccb99srqrlvlpn807u \
-                    .apps.googleusercontent.com"
+GOOGLE_CLIENT_ID = "42003689246-4t2lkspfbuaf8kccb99srqrlvlpn807u.apps.googleusercontent.com"
 GOOGLE_CLIENT_SECRET = "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"
-GOOGLE_DISCOVERY_URL = "https://accounts.google.com/.well-known/ \
-                    openid-configuration"
+GOOGLE_DISCOVERY_URL = "https://accounts.google.com/.well-known/openid-configuration"
 
 # OAuth2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
