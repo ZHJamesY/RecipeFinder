@@ -1,6 +1,6 @@
 # API Design and Integration (15%)
-- Clear and well-structured API endpoints.
-- Proper use of HTTP methods (GET, POST, PUT, DELETE).
+- Clear and well-structured API endpoints. ✅
+- Proper use of HTTP methods (GET, POST, PUT, DELETE). ✅
 - Integration with at least one external API. ✅
 - Documentation of the API endpoints.
 
@@ -10,15 +10,15 @@
 - Diagram and explanation of the chosen architecture (UML package and class diagrams). ✅
 
 # Authentication and Security (10%)
-- Implementation of secure user authentication (e.g., OAuth, JWT, etc.).
+- Implementation of secure user authentication (e.g., OAuth, JWT, etc.). ✅
 - Protection of sensitive routes with proper authorization checks.
 - Handling of user sessions and secure storage of credentials.
 
 # Database Design and ORM (10%)
-- Database schema design.
-- Use of an ORM for database interactions (e.g., SQLAlchemy, Django ORM).
-- Implementation of CRUD operations.
-- Use of relationships between data entities.
+- Database schema design. ✅
+- Use of an ORM for database interactions (e.g., SQLAlchemy, Django ORM). ✅
+- Implementation of CRUD operations. ✅
+- Use of relationships between data entities. ✅
 
 # Testing and Quality Assurance (10%)
 - Unit tests covering core functionalities. 
