@@ -78,10 +78,8 @@ The project follows an **MVC architecture pattern**, with clear separation betwe
 
 - Run with hypercorn - Go to flask directory on terminal, execute command `hypercorn "run:app" -c hypercorn.toml --bind "0.0.0.0:8000"`  
 
-### Run app with Docker  
-
-### Build the docker image and run the docker container  
-- Execute the docker_build.bat file or run the commands in the docker_build.bat file to build and run docker container
+### Run app with Docker    
+- Execute the docker_build.bat file or run the commands in the docker_build.bat file to build and run the docker container
 
     
 ## Deploy on third-party platform  
