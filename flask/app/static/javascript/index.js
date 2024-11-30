@@ -29,6 +29,12 @@ function displayRecipeInfo()
 
 // Function to handle the POST request for saving recipe
 async function saveRecipe() {
+    // check if user is logged in (if email element exists)
+    if(!document.querySelector('#userEmail'))
+    {
+        alert('Please login in order to save recipe.');
+        return;
+    }
     let userEmail = document.querySelector('#userEmail').innerText.replace('Email: ', '');
     // let recipeContent = document.querySelector('.popup').innerHTML;
 
@@ -47,19 +53,6 @@ async function saveRecipe() {
     //get the preparation (ingredients) from the preparation element
     let ingredients = Array.from(popupContent.querySelectorAll('#preparation li')).map(li => li.innerText);
 
-    // // Wrap the content in a 'popup' div (if not already wrapped)
-    // let wrapperDiv = document.createElement('div');
-    // wrapperDiv.classList.add('popup');
-    // wrapperDiv.innerHTML = popupContent.innerHTML;
-
-    // Serialize the final HTML
-    // let recipeContent = wrapperDiv.outerHTML;
-
-    console.log(imageUrl);
-    console.log(recipeName);
-    console.log(instructions);
-    console.log(ingredients);
-
     try {
         const response = await fetch('/user/save_recipe', {
             method: 'POST',
@@ -76,6 +69,7 @@ async function saveRecipe() {
         });
 
         if (response.ok) {
+            alert('Recipe saved successfully');
             console.log('Recipe saved successfully');
         } else {
             console.log('Failed to save recipe');
@@ -98,7 +92,7 @@ async function findRecipe() {
     </div>
     <div class="popup">
         <span>&times;</span>
-        <button id="savedBtn" onclick="saveRecipe()">Save Recipe</button>
+        <button id="savedBtn" onclick="saveRecipe(); return false;">Save Recipe</button>
         <div class="recipeContainer">
             <img class="popupImage" src="" alt="Recipe Image">
             <div class="recipeInfo">

@@ -1,0 +1,3 @@
+Report link: https://pagespeed.web.dev/analysis/https-recipefinder-1rqb-onrender-com/nx248m5ref?form_factor=desktop
+
+- Indicated unuse jQuery, but jQuery is in use, no further optimization.

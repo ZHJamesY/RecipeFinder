@@ -1,13 +1,16 @@
 import requests
 from oauthlib.oauth2 import WebApplicationClient
+from dotenv import load_dotenv
+import os
 
 # Google OAuth configuration
 # recipefinder oauth
-# yes, this is bad security to store the google
-# oauth keys in the code, but this is a demo project
-GOOGLE_CLIENT_ID = "42003689246-4t2lkspfbuaf8kccb99srqrlvlpn807u.apps.googleusercontent.com"
-GOOGLE_CLIENT_SECRET = "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"
-GOOGLE_DISCOVERY_URL = "https://accounts.google.com/.well-known/openid-configuration"
+
+load_dotenv()
+
+GOOGLE_CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
+GOOGLE_DISCOVERY_URL = os.getenv('GOOGLE_DISCOVERY_URL')
 
 # OAuth2 client setup
 client = WebApplicationClient(GOOGLE_CLIENT_ID)
