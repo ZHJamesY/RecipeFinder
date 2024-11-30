@@ -3,8 +3,6 @@ from oauthlib.oauth2 import WebApplicationClient
 from dotenv import load_dotenv
 import os
 
-
-
 # Google OAuth configuration
 # recipefinder oauth
 
