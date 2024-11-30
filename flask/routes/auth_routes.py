@@ -17,7 +17,7 @@ def login():
 
     request_uri = client.prepare_request_uri(
         authorization_endpoint,
-        redirect_uri = request.base_url.replace("http://", "https://") + "/callback",
+        redirect_uri=request.base_url + "/callback",
         scope=["openid", "email", "profile"],
     )
     return redirect(request_uri)
@@ -28,7 +28,7 @@ def callback():
 
     code = request.args.get("code")
 
-    # Fetch access token
+    # Fetch access token - replaced http with https for google OAuth 2.0 request
     token = fetch_token(code, request.url.replace("http://", "https://"))
 
     # Fetch user info

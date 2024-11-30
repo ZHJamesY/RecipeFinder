@@ -1,9 +1,11 @@
 # RecipeFinder  
 RecipeFinder Project - OTU  
 Access demo at: https://recipefinder-1rqb.onrender.com  
+See the related documents/reports in the folder `/documents`
 
 # Table of Contents
 - [Overview](#overview)  
+- [Environment Variables setup](#environment-variables-setup)
 - [Deployment](#deployment)  
 - [API documentation](#api-documentation)  
 
@@ -68,6 +70,14 @@ The project follows an **MVC architecture pattern**, with clear separation betwe
 
 <br />
 
+# Environment Variables setup  
+
+Set up environment variables for spoonacular api key, and Google OAuth 2.0 login features.
+
+**See .env_SAMPLE.txt file for more information.** 
+
+<br />
+
 # Deployment
 
 ## Deploy on local machine  
@@ -90,8 +100,6 @@ The project follows an **MVC architecture pattern**, with clear separation betwe
 # API documentation  
 
 ## External APIs - Source: `https://spoonacular.com/food-api`  
-
-### Set up environment variable for your api key. See .env_SAMPLE.txt file for more information  
  
 `GET https://api.spoonacular.com/recipes/complexSearch`  
 

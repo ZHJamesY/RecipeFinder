@@ -17,5 +17,7 @@ jobs:
     - name: Install Flake8 
       run: pip install flake8
 
+    # some code doesn't work well when splitted into multiple lines
+    # reassign max length to 110
     - name: Run Flake8 
       run: flake8 --max-line-length=110 flask

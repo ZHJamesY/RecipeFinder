@@ -67,6 +67,7 @@ def test_page_search(driver, test_app):
     pause(2)
 
     # enter ingredients and click button to search for recipe
+    # external api test: button click action will trigger the external api call
     driver.find_element(By.ID, 'ingredients').send_keys('chicken')
     driver.find_element(By.ID, 'recipeFindBtn').click()
     pause(2)

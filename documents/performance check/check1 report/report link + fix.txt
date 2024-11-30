@@ -1,4 +1,4 @@
-Report link: https://pagespeed.web.dev/analysis/https-recipefinder-1rqb-onrender-com/7pimqbnu3l?form_factor=mobile
+Report link: https://pagespeed.web.dev/analysis/https-recipefinder-1rqb-onrender-com/7pimqbnu3l?form_factor=desktop
 
 - Removed unused JavaScript
 - Added <title> element
