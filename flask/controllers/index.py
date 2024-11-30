@@ -26,4 +26,3 @@ def saved_recipes_list():
             saved_recipes=current_user.saved_recipes,
         )
     return render_template("index_not_logged_in.html")
-
