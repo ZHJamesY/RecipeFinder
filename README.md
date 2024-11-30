@@ -3,6 +3,17 @@ RecipeFinder Project - OTU
 Access demo at: https://recipefinder-1rqb.onrender.com  
 See the related documents/reports in the folder `/documents`
 
+## Project display  
+### User not logged in  
+https://github.com/user-attachments/assets/75b5a7dc-df2d-4c1a-a36b-6d0c4eb1fe26  
+
+---  
+
+### User logged in  
+https://github.com/user-attachments/assets/a1823a81-514a-4925-83a4-074eea18e8cd  
+
+<br/>
+
 # Table of Contents
 - [Overview](#overview)  
 - [Environment Variables setup](#environment-variables-setup)
