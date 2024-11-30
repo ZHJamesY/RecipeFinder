@@ -11,8 +11,8 @@
 
 # Authentication and Security (10%)
 - Implementation of secure user authentication (e.g., OAuth, JWT, etc.). ✅
-- Protection of sensitive routes with proper authorization checks.
-- Handling of user sessions and secure storage of credentials.
+- Protection of sensitive routes with proper authorization checks. ✅
+- Handling of user sessions and secure storage of credentials. ✅
 
 # Database Design and ORM (10%)
 - Database schema design. ✅
@@ -21,8 +21,8 @@
 - Use of relationships between data entities. ✅
 
 # Testing and Quality Assurance (10%)
-- Unit tests covering core functionalities. 
-- Integration tests for API endpoints.
+- Unit tests covering core functionalities. ✅
+- Integration tests for API endpoints. ✅
 - End-to-end tests with Selenium. ✅
 
 # Deployment and DevOps (10%)

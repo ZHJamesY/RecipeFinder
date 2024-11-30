@@ -27,7 +27,3 @@ def saved_recipes_list():
         )
     return render_template("index_not_logged_in.html")
 
-
-@index.route("/testing")
-def test():
-    return render_template('testing.html')
