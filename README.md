@@ -110,6 +110,38 @@ Set up environment variables for spoonacular api key, and Google OAuth 2.0 login
 
 # API documentation  
 
+## Interal APIs
+
+### GET - route: '/user/<user_id>'
+Used to fetch a user from the database by the ID
+
+### POST - route: '/user/create'
+Used to create a new user in the database given the proper JSON body
+
+### GET - route: '/user/<user_id>/recipes'
+Used to fetch all of the saved recipes of a user by the ID
+
+### POST - route: '/user/save_recipe'
+Used to save a recipe object to the current user given the proper JSON body
+
+### DELETE - route '/user/remove_recipe'
+Used to remove a recipe from the current user's saved recipe list given the email and name of the recipe through JSON 
+
+### DELETE - route '/user/<user_id>/remove_recipe'
+Used to remove a recipe from a user given the user_id and recipe_id
+
+### GET - route: '/recipe/<recipe_id>'
+Used to fetch a recipe from the database by the ID
+
+### GET - route: '/recipe/<recipe_name>'
+Used to fetch a recipe from the database by the its name
+
+### GET - route: '/recipe/getall' 
+Used to fetch all recipes from the database
+
+### POST - route: '/recipe/create'
+Used to create a new recipe in the database
+
 ## External APIs - Source: `https://spoonacular.com/food-api`  
  
 `GET https://api.spoonacular.com/recipes/complexSearch`  
