@@ -77,26 +77,3 @@ class UserService:
             user.saved_recipes.remove(recipe)
             db.session.commit()
             print("recipe removed from user")
-
-    # def add_recipe_to_user2(self, user_id, recipe_html):
-    #     user = User.query.filter_by(id=user_id).first()
-
-    #     if not user:
-    #         print("user not found")
-    #         raise ValueError(f"User with ID {user_id} not found.")
-
-    #     # check if the recipe exists in the database
-    #     recipe = recipe_service.get_recipe_by_html(recipe_html)
-
-    #     if not recipe:
-    #         # create the recipe if it doesn't exist
-    #         recipe = Recipe(recipe_html=recipe_html)
-    #         db.session.add(recipe)
-    #         db.session.commit()
-    #         print("recipe committed to database")
-
-    #     # check if the recipe is already in the user's saved recipes
-    #     if recipe not in user.saved_recipes:
-    #         user.saved_recipes.append(recipe)
-    #         db.session.commit()
-    #         print("recipe added to user")

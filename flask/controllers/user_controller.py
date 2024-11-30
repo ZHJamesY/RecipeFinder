@@ -8,7 +8,7 @@ user_bp = Blueprint('user', __name__)
 user_service = UserService()
 
 
-# Definte the route for getting a user
+# Definte the route for getting a user by id
 @user_bp.route('/<user_id>', methods=['GET'])
 def get_user(user_id):
     # call the get_user method from the user_service
@@ -20,11 +20,11 @@ def get_user(user_id):
 
     # Return the user data
     return jsonify({
-        'id': user.id,
-        'name': user.name,
-        'email': user.email,
-        'profile_pic': user.profile_pic,
-        'saved_recipes': user.saved_recipes
+        'id': user['id'],
+        'name': user['name'],
+        'email': user['email'],
+        'profile_pic': user['profile_pic'],
+        # 'saved_recipes': user['saved_recipes']
     })
 
 
@@ -47,12 +47,16 @@ def get_all_recipes_from_user(user_id):
     recipes = user_service.get_all_recipes_from_user(user_id)
     # Return the list of recipes
     return jsonify([{
-        'id': recipe.id,
-        'recipe_html': recipe.recipe_html
+        'id': recipe['id'],
+        'name': recipe['name'],
+        'image_url': recipe['image_url'],
+        'ingredients': recipe['ingredients'],
+        'instructions': recipe['instructions']
     } for recipe in recipes])
 
 
-# define the route for adding a recipe to a user (no params)
+# define the route for adding a recipe to a user
+# (no params, using recipe data from request body)
 @user_bp.route('/save_recipe', methods=['POST'])
 def add_recipe_to_user():
     # extract the recipe data from the request
@@ -88,6 +92,8 @@ def add_recipe_to_user():
         return jsonify({'error': str(e)}), 404
 
 
+# define the route for removing a recipe from a user
+# (no params, using recipe name from request body)
 @user_bp.route('/remove_recipe', methods=['DELETE'])
 def remove_recipe_from_user_with_name():
     recipe_data = request.get_json()
@@ -102,51 +108,13 @@ def remove_recipe_from_user_with_name():
 
 
 # define the route for removing a recipe from a user
+# (using recipe id from url params)
+# note: this route is not used in our current implementation
 @user_bp.route('/<user_id>/remove_recipe', methods=['DELETE'])
 def remove_recipe_from_user(user_id, recipe_id):
     try:
         user_service.remove_recipe_from_user(user_id, recipe_id)
-        return jsonify({'message':
-                        'Recipe removed from user successfully'}), 200
+        return jsonify(
+            {'message': 'Recipe removed from user successfully'}), 200
     except ValueError as e:
         return jsonify({'error': str(e)}), 404
-
-# define the route for adding a recipe with no url params
-# response is passed with body: email, html
-# @user_bp.route('/save_recipe', methods=['POST'])
-# def add_recipe_to_user():
-#     # extract the recipe data from the request
-#     recipe_data = request.get_json()
-
-#     # extract the email and html from the recipe data
-#     email = recipe_data['email']
-#     recipe_html = recipe_data['recipe']
-
-#     # check if the email and html are present
-#     if not email or not recipe_html:
-#         return jsonify({'error': 'Email and Recipe HTML are required'}), 400
-
-#     # try to add the recipe to the user
-#     try:
-#         user_service.add_recipe_to_user(email, recipe_html)
-#         return jsonify({'message': 'Recipe added to user successfully'}), 200
-#     except ValueError as e:
-#         return jsonify({'error': str(e)}), 404
-
-
-# define the route for adding a recipe to a user
-# @user_bp.route('/<user_id>/add_recipe', methods=['POST'])
-# def add_recipe_to_user2(user_id):
-#     # Extract the recipe data from the request
-#     recipe_data = request.get_json()
-
-#     recipe_html = recipe_data['recipe_html']
-
-#     if not recipe_html:
-#         return jsonify({'error': 'Recipe HTML is required'}), 400
-
-#     try:
-#         user_service.add_recipe_to_user2(user_id, recipe_html)
-#         return jsonify({'message': 'Recipe added to user successfully'}), 200
-#     except ValueError as e:
-#         return jsonify({'error': str(e)}), 404

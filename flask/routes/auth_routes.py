@@ -17,7 +17,8 @@ def login():
 
     request_uri = client.prepare_request_uri(
         authorization_endpoint,
-        redirect_uri = request.base_url.replace("http://", "https://") + "/callback",
+        redirect_uri=request.base_url.replace(
+            "http://", "https://") + "/callback",
         scope=["openid", "email", "profile"],
     )
     return redirect(request_uri)

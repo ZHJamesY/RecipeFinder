@@ -14,11 +14,6 @@ class RecipeService:
     def get_recipe_by_name(self, recipe_name):
         return Recipe.query.filter_by(name=recipe_name).first()
 
-    # method for getting recipe by html
-    # (might change to name or something)
-    # def get_recipe_by_html(self, recipe_html):
-    #     return Recipe.query.filter_by(recipe_html=recipe_html).first()
-
     # method for getting all recipes (that are
     # currently stored in the database)
     def get_all_recipes(self):
