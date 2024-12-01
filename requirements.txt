@@ -8,7 +8,7 @@ oauthlib
 pyOpenSSL
 Flask-Login
 Flask-SQLAlchemy==3.1.1
-SQLAlchemy==2.0.35
+SQLAlchemy==2.0.36
 typing_extensions==4.12.2
 Flask_Login==0.6.3
 flask_sqlalchemy==3.1.1
